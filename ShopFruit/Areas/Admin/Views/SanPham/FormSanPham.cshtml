@@ -1,0 +1,69 @@
+﻿@model Model.EF.SanPham
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Sản Phẩm</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="SanPhamID">Sản Phẩm ID</label>
+                        <input required type="text" class="form-control" id="SanPhamID" placeholder="" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Image">Hình Ảnh</label>
+                        <input required type="text" class="form-control" id="Image" placeholder="Hình Ảnh" />
+                    </div>
+                    <div class="form-group">
+                        <label for="TenSanPham">Tên Sản Phẩm</label>
+                        <input type="text" class="form-control" id="TenSanPham" placeholder="Tên Sản Phẩm" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DonGia">Giá Gốc</label>
+                        <input type="number" class="form-control" id="DonGia" placeholder="Giá Gốc" />
+                    </div>
+                    <div class="form-group">
+                        <label for="PromotionPrice">Giá Khuyến Mãi</label>
+                        <input type="number" class="form-control" id="PromotionPrice" placeholder="Giá Khuyến Mãi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="TomTat">Tóm Tắt</label>
+                        <input type="text" class="form-control" id="TomTat" placeholder="Tóm Tắt" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Mô Tả</label>
+                        <input type="text" class="form-control" id="Description" placeholder="Mô Tả" />
+                    </div>
+                    <div class="form-group">
+                        <label for="MetaKeyword">MetaKeyword</label>
+                        <input type="text" class="form-control" id="MetaKeyword" placeholder="MetaKeyword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Quantity">Số Lượng</label>
+                        <input type="number" min="0" max="1000" class="form-control" id="Quantity" placeholder="Số Lượng" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DanhMucSanPhamID">Danh Mục Sản Phẩm</label>
+                        @Html.DropDownListFor(Model =>Model.DanhMucSanPhamID, (IEnumerable<SelectListItem>)ViewBag.CategoryID, "chọn danh mục sản phẩm", new { @class = "form-control", @id = "DanhMucSanPhamID" })
+                    </div>
+                    <div class="form-group">
+                        <label for="Status">Trạng Thái</label>
+                        <input type="number" min="0" max="10" class="form-control" id="Status" placeholder="Trạng Thái" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary"  id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

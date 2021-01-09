@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Model.EF.User>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@section User{
+    <script src="~/Content/Admin/js/User.js"></script>
+}
+
+<div class="container">
+    <h2>Thông tin tài khoản</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Thêm tài khoản</button><br /><br />
+    <table class="table table-bordered table-hover" id="employeeTable">
+        <thead>
+            <tr>
+                <th>
+                    Gmail
+                </th>
+                <th>
+                    Mật khẩu
+                </th>
+                <th>
+                    GroupID
+                </th>
+                <th>
+                    Tên
+                </th>
+                <th>
+                    Địa chỉ
+                </th>
+                <th>
+                    Số điện thoại
+                </th>
+                <th>
+                    Trạng thái
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gmail)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroupID)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" onclick=getbyID(@item.UserID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                        <a class="btn btn-danger btn-sm" onclick=Delete(@item.UserID);><i class="fa fa-trash fa-lg"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@{Html.RenderAction("FormUser", "User");}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/Admin/js/jquery.dataTables.min.js"></script>
+    <script>
+        function activatejQueryTable() {
+            $("#employeeTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+        });
+    </script>
+}
+

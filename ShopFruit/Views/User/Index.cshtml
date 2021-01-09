@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div class="content-page">
+        <div class="container">
+            <div class="shop-banner banner-adv line-scale zoom-image">
+                <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/page/about.jpg" alt="" /></a>
+                <div class="banner-info">
+                    <div class="bread-crumb white"><a href="#" class="white">Home</a><span>Người dùng</span></div>
+                </div>
+            </div>
+            <!-- ENd Banner -->
+            <div class="register-content-box">
+                <h2 class="title30 font-bold text-uppercase text-center">Đăng nhập/Đăng ký</h2>
+                <div class="row">
+                    @if (ViewBag.Update != null)
+                    {
+                    <div class="alert alert-success">@ViewBag.Update</div>
+                    }
+                    @{ Html.RenderPartial("Login");}
+                    @{ Html.RenderPartial("Register");}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

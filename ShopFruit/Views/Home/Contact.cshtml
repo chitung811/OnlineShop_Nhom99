@@ -1,0 +1,97 @@
+﻿@model List<Model.EF.MessageContact>
+@{
+    ViewBag.Title = "Contact";
+}
+<!-- End Header -->
+
+<style>
+    #map {
+        height:400px;
+        width: 100%;
+    }
+</style>
+<section id="content">
+    <div class="container">
+        <div class="content-page">
+            <div class="contact-map border">
+                <div id="map"></div>
+            </div>
+            <div class="contact-info-page">
+                <div class="list-contact-info">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item-contact-info text-center">
+                                <a class="contact-icon color wobble-horizontal" href="#"><i class="fa fa-mobile"></i></a>
+                                <h2 class="title18 text-upperrcase font-bold">Hotline: <a href="#">080 900660</a></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item-contact-info text-center">
+                                <a class="contact-icon color wobble-horizontal" href="#"><i class="fa fa-phone"></i></a>
+                                <h2 class="title18 text-upperrcase font-bold">Call: <a href="#">040 5050 3396</a></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="item-contact-info text-center">
+                                <a class="contact-icon color wobble-horizontal" href="mailto:7uptheme@gmail.com"><i class="fa fa-envelope"></i></a>
+                                <h2 class="title18 text-upperrcase font-bold"><a href="mailto:7uptheme@gmail.com">7uptheme@gmail.com</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="desc">If the supplier fails to ship your products on time or the product quality does not meet the standards set in your contract, Aloshop will refund the covered amount of your payment.</p>
+            </div>
+            <div class="contact-form-page">
+                <h2 class="title30 text-uppercase font-bold">contact from</h2>
+                <div class="form-contact">
+                    @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input name="name" value="Name *" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue" type="text">
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input name="email" value="Email *" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue" type="text">
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input name="website" value="Website" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue" type="text">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea name="message" cols="30" rows="8" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue"></textarea>
+                                <input class="shop-button" value="Send Message" type="submit">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- End Content Page -->
+    </div>
+</section>
+<script>
+    function initMap() {
+        var uluru = { lat: 10.768705, lng: 106.688223 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: uluru
+        });
+
+        var contentString = "2B Lương Hữu Khánh, Phạm Ngũ Lão, Quận 1, Hồ Chí Minh";
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: 'Địa chỉ'
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
+    google.maps.event.addListener(window, 'load', initMap);
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYtKBQu-60IyPerFgDdVNB7YQ8DwEGSi0&callback=initMap" type="text/javascript"></script>

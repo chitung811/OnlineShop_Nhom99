@@ -1,0 +1,44 @@
+﻿@model List<ShopFruit.Models.CartItem>
+@{
+    Layout = null;
+}
+
+<div class="mini-cart-box mini-cart1 pull-right">
+    <a class="mini-cart-link" href="#">
+        <span class="mini-cart-icon title18 color"><i class="fa fa-shopping-basket"></i></span>
+        <span class="mini-cart-number">@Model.Count Item - <span class="color">@Model.Sum(x => x.Quantity * x.Product.PromotionPrice.AsDecimal()).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></span>
+    </a>
+    <div class="mini-cart-content text-left">
+        <h2 class="title18 color">(@Model.Count) ITEMS IN MY CART</h2>
+        <div class="list-mini-cart-item">
+            @foreach (var item in Model)
+            {
+                <div class="product-mini-cart table">
+                    <div class="product-thumb">
+                        <a href="detail.html" class="product-thumb-link"><img alt="" src="~/Content/Client/images/@item.Product.Image"></a>
+                        <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><a href="#">@item.Product.TenSanPham</a></h3>
+                        <div class="product-price">
+                            <ins><span>@item.Product.DonGia.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+                            <del><span>@item.Product.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></del>
+                        </div>
+                        <div class="product-rate">
+                            <div class="product-rating" style="width:100%"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="mini-cart-total  clearfix">
+            <strong class="pull-left title18">TOTAL</strong>
+            <span class="pull-right color title18">@Model.Sum(x => x.Quantity * x.Product.PromotionPrice.AsDecimal()).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span>
+        </div>
+        <div class="mini-cart-button">
+            <a class="mini-cart-view shop-button" href="/cart">View cart </a>
+            <a class="mini-cart-checkout shop-button" href="#">Checkout</a>
+        </div>
+    </div>
+</div>

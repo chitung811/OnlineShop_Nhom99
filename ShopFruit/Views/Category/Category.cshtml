@@ -1,0 +1,20 @@
+﻿@model List<Model.EF.DanhMuc>
+@{
+    var DanhMucSanPham = (List<Model.EF.DanhMucSanPham>)ViewBag.DanhMuc;
+}
+
+@foreach (var item in Model)
+{
+    <li class="dropdown-submenu">
+        <a class="test"  tabindex="-1" data-toggle="dropdown" href="#">@item.TenDanhMuc</a>
+        <ul class="dropdown-menu">
+            @foreach (var danhMuc in DanhMucSanPham)
+            {
+                if (item.DanhMucID == danhMuc.DanhMucID)
+                {
+                    <li><a href="/danh-muc/@danhMuc.DanhMucSanPhamID">@danhMuc.TenDanhMucSanPham</a></li>
+                }
+            }
+        </ul>
+    </li>
+}

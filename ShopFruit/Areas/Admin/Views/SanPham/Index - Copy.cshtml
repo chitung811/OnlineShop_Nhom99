@@ -1,0 +1,171 @@
+﻿
+@model Model.EF.SanPham
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+@section jFooter{
+    <script src="~/Content/Admin/js/mustache.min.js"></script>
+    <script src="~/Content/Admin/js/jquery.twbsPagination.min.js"></script>
+    <script src="~/Content/Admin/js/SanPham.js"></script>
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ SẢN PHẨM</h1>
+    <p class="mb-4"> Bảng chứa thông tin các sản phẩm.</p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h5 class="m-0 font-weight-bold text-primary">Danh Sách Tài Khoản</h5>
+        </div>
+        <div class="card-body">
+            <div class="content-body">
+                <form action="@Url.Action("Index","SanPham",FormMethod.Get)" data-otf-ajax="true" data-otf-target="#BookList" method="get">
+                    <p>
+                        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                        <input type="submit" value="Search" />
+                    </p>
+                </form>
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New SanPham</button><br /><br />
+                    <table class="table table-bordered table-hover " id="employeeTable">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Hình Ảnh
+                                </th>
+                                <th>
+                                    Tên Sản Phẩm
+                                </th>
+                                <th>
+                                    Giá Gốc
+                                </th>
+                                <th>
+                                    Giá Khuyến Mãi
+                                </th>
+                                <th>
+                                    Tóm Tắt
+                                </th>
+                                <th>
+                                    Mô Tả
+                                </th>
+                                <th>
+                                    MetaKeyword
+                                </th>
+                                <th>
+                                    Số Lượng
+                                </th>
+                                <th>
+                                    Danh Mục Sản Phẩm
+                                </th>
+                                <th>
+                                    Trạng Thái
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody" id="tblData"></tbody>
+                    </table>
+                    <div id="pagination" class="pagination">
+                    </div>
+                    <script id="data-template" type="x-tmpl-mustache">
+                        <tr>
+
+                            <td>{{Image}}</td>
+                            <td>{{TenSanPham}}</td>
+                            <td>{{GiaGoc}}</td>
+                            <td>{{PromotionPrice}}</td>
+                            <td>{{TomTat}}</td>
+                            <td>{{MoTa}}</td>
+                            <td>{{MetaKeyword}}</td>
+                            <td>{{Quantity}}</td>
+                            <td>{{DanhMucSanPham}}</td>
+                            <td>{{{Status}}}</td>
+                            <td>
+                                <button class="btn btn-primary btn-edit" onclick="return getbyID({{SanPhamID}})" data-id="{{SanPhamID}}">Edit</button>
+                                <button class="btn btn-danger btn-delete" onclick="Delele({{SanPhamID}})" data-id="{{SanPhamID}}">Delete</button>
+
+                            </td>
+                        </tr>
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="SanPhamID">Sản Phẩm ID</label>
+                        <input type="text" class="form-control" id="SanPhamID" placeholder="Hình Ảnh" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Image">Hình Ảnh</label>
+                        <input type="text" class="form-control" id="Image" placeholder="Hình Ảnh" />
+                    </div>
+                    <div class="form-group">
+                        <label for="TenSanPham">Tên Sản Phẩm</label>
+                        <input type="text" class="form-control" id="TenSanPham" placeholder="Tên Sản Phẩm" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DonGia">Giá Gốc</label>
+                        <input type="text" class="form-control" id="DonGia" placeholder="Giá Gốc" />
+                    </div>
+                    <div class="form-group">
+                        <label for="PromotionPrice">Giá Khuyến Mãi</label>
+                        <input type="text" class="form-control" id="PromotionPrice" placeholder="Giá Khuyến Mãi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="TomTat">Tóm Tắt</label>
+                        <input type="text" class="form-control" id="TomTat" placeholder="Tóm Tắt" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Mô Tả</label>
+                        <input type="text" class="form-control" id="Description" placeholder="Mô Tả" />
+                    </div>
+                    <div class="form-group">
+                        <label for="MetaKeyword">MetaKeyword</label>
+                        <input type="text" class="form-control" id="MetaKeyword" placeholder="MetaKeyword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Quantity">Số Lượng</label>
+                        <input type="text" class="form-control" id="Quantity" placeholder="Số Lượng" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DanhMucSanPhamID">Danh Mục Sản Phẩm</label>
+                        @Html.DropDownListFor(model => model.DanhMucSanPhamID, (IEnumerable<SelectListItem>)ViewBag.CategoryID, new { @class = "form-control", @id = "DanhMucSanPhamID" })
+                    </div>
+                    <div class="form-group">
+                        <label for="Status">Trạng Thái</label>
+                        <input type="text" class="form-control" id="Status" placeholder="Trạng Thái" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

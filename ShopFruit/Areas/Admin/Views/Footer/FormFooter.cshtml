@@ -1,0 +1,37 @@
+﻿@model Model.EF.Footer
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Footer</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="FooterID">FooterID</label>
+                        <input type="text" class="form-control" id="FooterID" placeholder="FooterID" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Nội dung">Nội dung</label>
+                        <input type="text" class="form-control" id="Content" placeholder="Nội dung" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Trạng thái">Trạng thái</label>
+                        <input type="checkbox" id="Status" placeholder="Trạng thái" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

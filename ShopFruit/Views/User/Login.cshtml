@@ -1,0 +1,46 @@
+﻿@model ShopFruit.Models.LoginModel
+@{ Layout = null; }
+<add key="ClientValidationEnabled" value="true">
+    <add key="UnobtrusiveJavaScriptEnabled" value="true">
+        <div class="col-md-6 col-sm-6 col-ms-12">
+            <div class="">
+                <div class="form-my-account">
+                    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                    {
+                        <h2 class="title24 title-form-account">ĐĂNG NHẬP</h2>
+                        <p>
+                            <label>Email <span class="required">*</span></label>
+                            @Html.TextBoxFor(model => model.Gmail, new { @autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(model => model.Gmail, "", new { @class = "text-danger" })
+                        </p>
+                        <p>
+                            <label>Mật khẩu <span class="required">*</span></label>
+                            @Html.PasswordFor(model => model.Password, new { @autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </p>
+                        <p>
+                            <input type="submit" class="register-button" name="Login" value="Login">
+                        </p>
+                        <div class="table create-account">
+                            <div class="text-left">
+                                <p>
+                                    <input type="checkbox" name="name" value="" /> <label for="remember">Remember me</label>
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <a href="#" class="color">Lost your password?</a>
+                            </div>
+                        </div>
+                        <h2 class="title18 social-login-title">Or login with</h2>
+                        <div class="social-login-block table text-center">
+                            <div class="social-login-btn">
+                                <a href="/User/LoginFacebook" class="login-fb-link">Facebook</a>
+                            </div>
+                            <div class="social-login-btn">
+                                <a href="#" class="login-goo-link">Google</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>

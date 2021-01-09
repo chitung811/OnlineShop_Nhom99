@@ -1,0 +1,22 @@
+﻿@{
+    var SanPhamConLai = (List<Model.EF.SanPham>)ViewBag.sanPhamConLai;
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Sản phẩm còn lại</h6>
+    </div>
+    @foreach (var item in SanPhamConLai)
+    {
+        <div class="card-body">
+            <h4 class="small font-weight-bold">@item.TenSanPham <span class="float-right">@item.Quantity</span></h4>
+            <div class="progress mb-4">
+                @{
+                    var phanTram = (item.Quantity * 100) / 100;
+                }
+                <div class="progress-bar bg-info" role="progressbar" style="width: @phanTram%" aria-valuenow=@item.Quantity aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,439 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    var slide = (List<Model.EF.Slide>)ViewBag.Slides;
+    var newProducts = (List<Model.EF.SanPham>)ViewBag.NewProducts;
+    var newProducts1 = (List<Model.EF.SanPham>)ViewBag.NewProducts1;
+    var listFeatureProducts = (List<Model.EF.SanPham>)ViewBag.ListFeatureProducts;
+    var SanPhamBanChay = (List<Model.EF.SanPham>)ViewBag.SanPhamBanChay;
+    var DanhMuc = (List<Model.EF.DanhMuc>)ViewBag.DanhMuc;
+    var DanhMucSanPham = (List<Model.EF.DanhMucSanPham>)ViewBag.DanhMucSanPham;
+}
+}
+
+
+<div class="banner-slider bg-slider banner-slider2 parallax-slider">
+    <div class="wrap-item" data-pagination="false" data-navigation="true" data-transition="fade" data-autoplay="true" data-itemscustom="[[0,1]]">
+        @foreach (var item in slide)
+        {
+            <div class="item-slider item-slider2">
+                <div class="banner-thumb">
+                    <a href="#"><img src="~/Content/Client/images/home/home2/@item.slide1" alt="" /></a>
+                </div>
+                <div class="banner-info text-center">
+                    <div class="img-info animated" data-animated="zoomIn"><img src="~/Content/Client/images/home/home2/@item.Image" alt="" /></div>
+                    <div class="text-info animated" data-animated="bounceInUp">
+                        <h2 class="title30 color paci-font">@item.Title</h2>
+                        <h2 class="color2 font-bold text-uppercase title30">@item.Description</h2>
+                        <div class="banner-button">
+                            <a href="#" class="btn-arrow color style2">Shop now</a>
+                            <a href="#" class="btn-arrow bg-color style2">More detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+<!-- End Banner -->
+<div class="container">
+    <div class="fruit-list-cat">
+        <div class="row">
+            @foreach (var dm in DanhMuc)
+            {
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="item-fruit-cat1">
+                        <h2 class="title18 color2 text-uppercase font-bold text-center">@dm.TenDanhMuc</h2>
+                        <div class="title18 line-space color text-center"><i class="fa fa-pagelines"></i></div>
+                        <ul class="list-none cat-menu2">
+                            @foreach (var dmsp in DanhMucSanPham)
+                            {
+                                if (dm.DanhMucID == dmsp.DanhMucID)
+                                {
+                                    <li><a href="/danh-muc/@dmsp.MetaKeyword/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>@dmsp.TenDanhMucSanPham.Count()</span></a></li>
+                                }
+
+                            }
+                        </ul>
+                        <a href="#" class="btn-viewall color">View All</a>
+                        @if (dm.DanhMucID == 1)
+                        {
+                            <div class="cat-menu-img"><img src="~/Content/Client/images/home/home2/menu3.png" alt="" /></div>
+                        }
+                        @if (dm.DanhMucID == 2)
+                        {
+                            <div class="cat-menu-img"><img src="~/Content/Client/images/home/home2/menu2.png" alt="" /></div>
+                        }
+                        @if (dm.DanhMucID == 1003)
+                        {
+                            <div class="cat-menu-img"><img src="~/Content/Client/images/home/home2/menu1.png" alt="" /></div>
+                        }
+
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+    <!-- End List Cat -->
+    <div class="featured-product2">
+        <h2 class="color2 title30 text-center title-box2">featured products</h2>
+        <ul class="list-inline-block text-center title-tab-icon">
+            <li>
+                <a href="#tab2" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru1.png" alt="" /><span>Watermelon</span></a>
+            </li>
+            <li>
+                <a href="#tab1" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru2.png" alt="" /><span>Apples</span></a>
+            </li>
+            <li class="active">
+                <a href="#tab2" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru3.png" alt="" /><span>Grapes</span></a>
+            </li>
+            <li>
+                <a href="#tab1" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru4.png" alt="" /><span>banana</span></a>
+            </li>
+            <li>
+                <a href="#tab2" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru5.png" alt="" /><span>Potatoes</span></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="tab2" class="tab-pane active">
+                <div class="product-slider">
+                    <div class="wrap-item" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
+                        @foreach (var item in newProducts)
+                        {
+                            var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+                            <div class="item-product border text-center">
+                                <div class="product-thumb">
+                                    <a href="@url" class="product-thumb-link rotate-thumb">
+                                        <img src="~/Content/Client/images/@item.Image" alt="">
+                                        <img src="~/Content/Client/images/@item.Image" alt="">
+                                    </a>
+                                    <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                    <div class="product-price">
+                                        <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+                                    </div>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:100%"></div>
+                                    </div>
+                                    <div class="product-extra-link">
+                                        <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
+                                        <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                        <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
+                                    </div>
+                                    <ul class="product-in-cat list-inline-block">
+                                        <li><a href="#">Fruits</a></li>
+                                        <li><a href="#">Breads</a></li>
+                                        <li><a href="#">Juices</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div id="tab1" class="tab-pane">
+                <div class="product-slider">
+                    <div class="wrap-item" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
+                        @foreach (var item in newProducts1)
+                        {
+                            var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+                            <div class="item-product border text-center">
+                                <div class="product-thumb">
+                                    <a href="@url" class="product-thumb-link rotate-thumb">
+                                        <img src="~/Content/Client/images/@item.Image" alt="">
+                                        <img src="~/Content/Client/images/@item.Image" alt="">
+                                    </a>
+                                    <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                    <div class="product-price">
+                                        <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+                                    </div>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:100%"></div>
+                                    </div>
+                                    <div class="product-extra-link">
+                                        <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
+                                        <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                        <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
+                                    </div>
+                                    <ul class="product-in-cat list-inline-block">
+                                        <li><a href="#">Fruits</a></li>
+                                        <li><a href="#">Breads</a></li>
+                                        <li><a href="#">Juices</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Featured -->
+</div>
+<div class="deal-box2">
+    <div class="title-deal-box2 white bg-color">
+        <h2 class="title30 paci-font">Super Delas</h2>
+        <h2 class="title30 text-uppercase font-bold">top 10 items</h2>
+    </div>
+    <div class="deal-product2">
+        <div class="container">
+            <div class="deal-slider2 product-slider">
+                <div class="wrap-item" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[990,3]]">
+                    @foreach (var item in listFeatureProducts)
+                    {
+                        var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+                        <div class="item-product item-deal-product2 text-center">
+                            <div class="product-thumb">
+                                <a href="@url" class="product-thumb-link zoomout-thumb">
+                                    <img src="~/Content/Client/images/@item.Image" alt="">
+                                    <img src="~/Content/Client/images/@item.Image" alt="">
+                                </a>
+                                <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <div class="product-label sale-label">***</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-price">
+                                    <del class="silver"><span>@item.DonGia.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></del>
+                                    <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+                                </div>
+                                <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                <div class="product-rate">
+                                    <div class="product-rating" style="width:100%"></div>
+                                </div>
+                                <div class="product-extra-link">
+                                    <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
+                                    <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                    <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="deal-countdown2">
+        <h2 class="title18 color">Deal ends in</h2>
+        <div class="days-countdown" data-date="12/12/2019"></div>
+    </div>
+</div>
+<!-- End Deal Box -->
+<div class="why-choise box-parallax">
+    <div class="container">
+        <div class="choise-title text-center wow zoomIn">
+            <h2 class="title30 paci-font color">Why Choose</h2>
+            <h2 class="title30 font-bold text-uppercase white">Fruit Store</h2>
+        </div>
+        <div class="list-service2">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="item-service1 table wow fadeInRight">
+                        <div class="service-icon">
+                            <a href="#"><i class="fa fa-bus"></i></a>
+                        </div>
+                        <div class="service-info">
+                            <h3 class="title18"><a href="#" class="white">Free Shipping</a></h3>
+                            <p class="desc white">With €50 or more orders</p>
+                        </div>
+                    </div>
+                    <div class="item-service1 table wow fadeInRight">
+                        <div class="service-icon">
+                            <a href="#"><i class="fa fa-refresh"></i></a>
+                        </div>
+                        <div class="service-info">
+                            <h3 class="title18"><a href="#" class="white">Free Refund</a></h3>
+                            <p class="desc white">100% Refund Within 3 days </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="item-service1 table wow fadeInRight">
+                        <div class="service-icon">
+                            <a href="#"><i class="fa fa-thumbs-o-up"></i></a>
+                        </div>
+                        <div class="service-info">
+                            <h3 class="title18"><a href="#" class="white">Lowest Price Guarantee</a></h3>
+                            <p class="desc white">Sales commitments at favorable prices</p>
+                        </div>
+                    </div>
+                    <div class="item-service1 table wow fadeInRight">
+                        <div class="service-icon">
+                            <a href="#"><i class="fa fa-volume-control-phone"></i></a>
+                        </div>
+                        <div class="service-info">
+                            <h3 class="title18"><a href="#" class="white">Support 24.7</a></h3>
+                            <p class="desc white">Call us anytime you want</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fruit-top wow slideInLeft"><img src="~/Content/Client/images/home/home2/fruit-top.png" alt="" /></div>
+    </div>
+</div>
+<!-- End Why Choise -->
+<div class="best-product2">
+    <div class="container">
+        <h2 class="color2 title30 text-center title-box2">best sellers Products</h2>
+        <div class="list-best-pro2">
+            <div class="row">
+                @foreach (var item in SanPhamBanChay)
+                {
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="item-product item-product2">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="product-thumb">
+                                        <a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID" class="product-thumb-link zoomout-thumb">
+                                            <img src="~/Content/Client/images/@item.Image" alt="">
+                                            <img src="~/Content/Client/images/@item.Image" alt="">
+                                        </a>
+                                        <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="product-info">
+                                        <div class="product-price">
+                                            <del class="gray"><span>@item.DonGia.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))</span><small>đ</small></del>
+                                            <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))</span><small>đ</small></ins>
+                                        </div>
+                                        <h3 class="product-title"><a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID">@item.TenSanPham</a></h3>
+                                        <div class="product-extra-link">
+                                            <a href="/them-gio-hang/@item.SanPhamID" class="addcart-link">Thêm vào giỏ</a>
+
+                                        </div>
+                                        <ul class="product-in-cat list-inline-block">
+                                            <li><a href="#">Trái cây</a></li>
+                                            <li><a href="#">Rau</a></li>
+                                            <li><a href="#">Củ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Best Product -->
+<div class="client-say2 text-center box-parallax">
+    <div class="container">
+        <h2 class="title30 paci-font color">What Client Say</h2>
+        <h2 class="title30 text-uppercase font-bold white">Fruit Store</h2>
+        <div class="client-slider2">
+            <div class="wrap-item" data-transition="fade" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1]]">
+                <div class="item-client2">
+                    <div class="client-thumb">
+                        <a href="#" tabindex="0"><img src="~/Content/Client/images/home/home1/av1.png" alt=""></a>
+                    </div>
+                    <div class="client-info">
+                        <h3 class="title18"><a href="#" class="color">Fanbong Fam</a></h3>
+                        <span class="white">Our happy Customer</span>
+                        <p class="desc white">“I love this store. I am always able to find fresh and clean produce for me and my family. Simply love it! Highly Recommended.”</p>
+                    </div>
+                </div>
+                <div class="item-client2">
+                    <div class="client-thumb">
+                        <a href="#" tabindex="0"><img src="~/Content/Client/images/home/home1/av2.png" alt=""></a>
+                    </div>
+                    <div class="client-info">
+                        <h3 class="title18"><a href="#" class="color">John Henry</a></h3>
+                        <span class="white">Our happy Customer</span>
+                        <p class="desc white">“I am always able to find fresh and clean produce for me and my family. I love this store. Simply love it! Highly Recommended.”</p>
+                    </div>
+                </div>
+                <div class="item-client2">
+                    <div class="client-thumb">
+                        <a href="#" tabindex="0"><img src="~/Content/Client/images/home/home1/av3.png" alt=""></a>
+                    </div>
+                    <div class="client-info">
+                        <h3 class="title18"><a href="#" class="color">Gaston Melor</a></h3>
+                        <span class="white">Our happy Customer</span>
+                        <p class="desc white">“I love this store. I am always able to find fresh and clean produce for me and my family. Simply love it! Highly Recommended.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Client -->
+    
+<!-- End Farm -->
+<div class="container">
+    <div class="box-brand2">
+        <h2 class="color2 title30 text-center title-box2">brands</h2>
+        <div class="list-brand2">
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br1.jpg" alt="" /></a>
+            </div>
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br2.jpg" alt="" /></a>
+            </div>
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br3.jpg" alt="" /></a>
+            </div>
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br4.jpg" alt="" /></a>
+            </div>
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br5.jpg" alt="" /></a>
+            </div>
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br6.jpg" alt="" /></a>
+            </div>
+            <div class="item-brand2">
+                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br7.jpg" alt="" /></a>
+            </div>
+        </div>
+    </div>
+    <!-- End Brand -->
+    <div class="vege-banner wow bounceIn">
+        <a href="#" class="push"><img src="~/Content/Client/images/home/home2/vege-banner.png" alt="" /></a>
+    </div>
+    <!-- End vege banner -->
+    <div class="photo-instagram">
+        <h2 class="color2 title-box2 title30 text-center">#Photo in Instagram</h2>
+        <ul class="list-inline-block text-center list-photo-in">
+            <li>
+                <div class="banner-adv zoom-image overlay-image">
+                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in1.png" alt="" /></a>
+                </div>
+            </li>
+            <li>
+                <div class="banner-adv zoom-image overlay-image">
+                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in2.png" alt="" /></a>
+                </div>
+            </li>
+            <li>
+                <div class="banner-adv zoom-image overlay-image">
+                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in3.png" alt="" /></a>
+                </div>
+            </li>
+            <li>
+                <div class="banner-adv zoom-image overlay-image">
+                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in4.png" alt="" /></a>
+                </div>
+            </li>
+            <li>
+                <div class="banner-adv zoom-image overlay-image">
+                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in5.png" alt="" /></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- End Photo -->
+</div>

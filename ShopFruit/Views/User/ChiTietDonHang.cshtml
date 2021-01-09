@@ -1,0 +1,90 @@
+﻿@model Model.ViewModel.DonHangViewModel
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 style="text-align:center;"><strong>CHI TIẾT ĐƠN HÀNG CỦA BẠN</strong></h2>
+<hr />
+<div style="margin: 55px;">
+    <table class="table table-bordered">
+        <tr style="border: 2px solid black;font-size: 20px;">
+            <th style="border: 2px solid black;font-size: 20px;">Thuộc Tính</th>
+            <th>#</th>
+
+
+        </tr>
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.SanPhamID)</th>
+            <td> @Html.DisplayNameFor(model => model.SanPhamID)</td>
+
+        </tr>
+
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TenSanPham)</th>
+            <td>@Html.DisplayFor(model => model.TenSanPham)</td>
+
+        </tr>
+
+
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DonGia)</th>
+            <td>@Html.DisplayFor(model => model.DonGia)</td>
+
+        </tr>
+
+
+
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.Quantity)</th>
+            <td> @Html.DisplayFor(model => model.Quantity)</td>
+
+        </tr>
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
+            <td>@Html.DisplayFor(model => model.CreateDate)</td>
+
+        </tr>
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ShipName)</th>
+            <td>@Html.DisplayFor(model => model.ShipName)</td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ShipMobile)</th>
+            <td>@Html.DisplayFor(model => model.ShipMobile)</td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ShipAddress)</th>
+            <td>@Html.DisplayFor(model => model.ShipAddress)</td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ShipEmail)</th>
+            <td>@Html.DisplayFor(model => model.ShipEmail)</td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TongTien)</th>
+            <td>@Html.DisplayFor(model => model.TongTien)</td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <td>@Html.DisplayFor(model => model.Status)</td>
+
+        </tr>
+    </table>
+</div>
+<p style="margin:25px">
+    
+    @Html.ActionLink("Quay Lại", "QuanLyDonHang","",new { @class ="btn-success",@style= "width:10px;font-size: 17px;padding: 10px; "})
+</p>
+<br />
+<br />

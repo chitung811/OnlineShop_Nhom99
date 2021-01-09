@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Model.EF.DanhMucSanPham>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+
+}
+@section DanhMucSanPham{
+    <script src="~/Content/Admin/js/danhmucsanpham.js"></script>
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ DANH MỤC SẢN PHẨM</h1>
+    <p class="mb-4"> Bảng chứa thông tin các danh mục sản phẩm.</p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h5 class="m-0 font-weight-bold text-primary">Danh Sách Danh Mục Sản Phẩm</h5>
+        </div>
+        <div class="card-body">
+            <div class="content-body">
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Thêm Danh Mục Sản Phẩm</button><br /><br />
+                    <table class="table table-bordered table-hover" id="employeeTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Tên Danh Mục Sản Phẩm
+                                </th>
+                                <th>
+                                    MetaKeyword
+                                </th>
+                                <th>
+                                    Danh mục
+                                </th>
+                                <th>
+                                    Trạng Thái
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenDanhMucSanPham)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MetaKeyword)
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(modelItem => item.DanhMucID, (IEnumerable<SelectListItem>)ViewBag.CategoryID, new { @class = "form-control", @disabled = "disabled" })
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" onclick=getbyID(@item.DanhMucSanPhamID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                                        <a class="btn btn-danger btn-sm" onclick=Delete(@item.DanhMucSanPhamID);><i class="fa fa-trash fa-lg"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@{Html.RenderAction("FormDanhMucSanPham", "DanhMucSanPham");}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/Admin/js/jquery.dataTables.min.js"></script>
+    <script>
+        function activatejQueryTable() {
+            $("#employeeTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+        });
+    </script>
+}
+
+
+
+

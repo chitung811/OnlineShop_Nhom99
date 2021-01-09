@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fruit Shop is new Html theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Html theme, with multiple versions for homepage and multiple templates for sub pages as well" />
+    <meta name="keywords" content="Fruit,7uptheme" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name='revisit-after' content='1 days' />
+    <title>Fruit Shop</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="~/Content/Client/css/libs/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/owl.transitions.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/owl.theme.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/slick.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/animate.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/libs/hover.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/color.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/color2.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/theme.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/responsive.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/browser.css" rel="stylesheet" />
+    <link href="~/Content/Admin/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/rtl.css" media="all"/> -->
+    <style>
+        .hover-nav, button {
+            BACKGROUND: #45bf61;
+        }
+
+            .hover-nav:hover {
+                background: black;
+            }
+
+        .dropdown-toggle:hover {
+            BACKGROUND: black;
+        }
+
+        .hover-nav1:hover {
+            background: black;
+            border-radius: 20px;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #ccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+                border-left-color: #fff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
+                }
+    </style>
+</head>
+<body class="preload">
+    <div class="wrap">
+        <section id="content">
+            <header id="header">
+                <div class="header">
+                    <div class="top-header top-header2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 hidden-xs">
+                                    <ul class="currency-language list-inline-block pull-left">
+                                        <li>
+                                            <div class="language-box">
+                                                <a href="#" class="language-current"><img src="~/Content/Client/images/icon/flag-en.png" alt=""><span>English</span></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <ul class="info-account list-inline-block pull-right">
+                                        @{
+
+                                           var session = (ShopFruit.Common.UserLogin)Session[ShopFruit.Common.CommonConstants.USER_SESSION];
+                                        }
+                                        @if (session == null)
+                                        {
+                                            <li><a href="@Url.Action("Index","User")"><span class="color"><i class="fas fa-sign-in-alt"></i></span>Đăng Nhập</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="nav-item dropdown show img-profile rounded-circle" style="float: left;">
+                                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fas fa-users"></i><span class="color">@session.Gmail</span><i class="fas fa-caret-down" style="padding-left: 2px;font-size:20px"></i>
+                                                </a>
+                                                <!-- Dropdown - User Information -->
+                                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                                    <a class="dropdown-item" href="/quan-ly-don-hang">
+                                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                        Đơn hàng của bạn
+                                                    </a>
+
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>@Html.ActionLink("Đăng xuất", "Logout", "User")
+                                                    </a>
+                                                </div>
+                                            </li>
+
+                                        }
+
+                                        <li><a href="/gio-hang"><span class="color"><i class="fas fa-cart-plus"></i></span>Giỏ Hàng</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Top Header -->
+                    <div class="main-header2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="logo logo2 pull-left">
+                                        <h1 class="hidden">Fruit Shop</h1>
+                                        <a href="/" ref="nofollow"><img src="~/Content/Client/images/home/home2/logo.png" alt="" /></a>
+                                    </div>
+                                    @{ Html.RenderAction("HeaderCart", "Home", new { area = "" });}
+                                    <form action="/tim-kiem" method="get" class="search-form search-form2 pull-right">
+                                        <input id="txtSearch" name="term" class="gray" placeholder="Gõ từ khoá...." type="text">
+                                        <input type="submit" value="">
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Main Header -->
+                    <div class="nav-header2 bg-color header-ontop">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <nav class="main-nav main-nav2 pull-left">
+                                        <ul>
+                                            <li class="current-menu-item hover-nav1" style="float: left" ;>
+                                                <a href="/" ref="nofollow">Trang Chủ</a>
+                                            </li>
+                                            <div class="dropdown hover-nav" style="float: left;">
+                                                <button style="padding: 6px 15px;COLOR: WHITE;FONT-SIZE: 14PX;font-weight: 700;line-height: 2;" class="btn btn-outline-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    CỬA HÀNG
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    @{ Html.RenderAction("Category", "Category", new { area = "" });}
+                                                </ul>
+                                            </div>
+
+                                            <li class="hover-nav">
+                                                <a href="@Url.Action("Index","Blog")">Blog</a>
+                                            </li>
+                                            <li class="hover-nav"><a href="/lien-he">Liên Hệ</a></li>
+                                            <li class="hover-nav"><a href="/gioi-thieu">Giới Thiệu</a></li>
+                                        </ul>
+                                        <a href="#" class="toggle-mobile-menu"><span></span></a>
+                                    </nav>
+                                    <div class="top-social pull-right">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tuoitre.vn/"><i class="fab fa-facebook"></i></a>
+                                        <a href="https://twitter.com/share?text=Home&url=https://tuoitre.vn/"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.pinterest.com/pin/create/button/?url=https://tuoitre.vn/&media=Home&description=Home"><i class="fab fa-pinterest"></i></a>
+                                        <a href="https://plus.google.com/share?url=https://tuoitre.vn/"><i class="fab fa-google"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        @RenderBody()
+        <footer id="footer">
+            @{Html.RenderAction("Footer", "Home", new { area = "" });}
+        </footer>
+    </div>
+    <script type="text/javascript" src="~/Content/Client/js/libs/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/jquery.jcarousellite.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/jquery.elevatezoom.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/slick.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/popup.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/timecircles.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/libs/wow.js"></script>
+    <script type="text/javascript" src="~/Content/Client/js/theme.js"></script>
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("jsFooter", required: false)
+    @RenderSection("jsBlog", required: false)
+    @RenderSection("jsLoadMore", required: false)
+    @RenderSection("jsSearchLoadMore", required: false)
+    @RenderSection("jsSort", required: false)
+    <script src="~/Content/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/Admin/js/demo/datatables-demo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).ready(function () {
+                $('.dropdown-submenu a.test').on("click", function (e) {
+                    $(this).next('ul').toggle();
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+            });
+        $('#txtSearch').autocomplete({
+            source: '@Url.Action("GetSearchValue", "Search")',
+            minLength: 1,
+            select: function (event, ui) {
+
+                window.location.href =
+                    'chi-tiet-' + ui.item.MetaKeyword+ '-' + ui.item.SanPhamID;
+            },
+        }).data("ui-autocomplete")._renderItem = function (ul, item) {
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+            var val = item.DonGia;
+            val = numberWithCommas(val);
+            var inner_html =
+                '<a><div class="row"><div class="col-md-4"><img style="width:60px; height:80px;" src="' +
+                item.image + '"></div>' + '<div class="col-md-8"> <div class="col-md-12">' + item.TenSanPham + '</div><div class="col-md-12">' +val +'<small>đ</small></div></div></div>';
+            return $('<li style="list-style-type: none";></li>')
+                .data("item.autocomplete", item)
+                .append(inner_html)
+                .appendTo(ul);
+        };
+
+    });
+
+    </script>
+</body>
+</html>

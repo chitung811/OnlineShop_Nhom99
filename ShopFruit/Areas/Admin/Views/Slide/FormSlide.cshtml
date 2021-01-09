@@ -1,0 +1,50 @@
+﻿@model Model.EF.Slide
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Slide</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="SlideID">SlideID</label>
+                        <input type="text" class="form-control" id="SlideID" placeholder="SlideID" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="slide1">Slide</label>
+                        <input type="text" class="form-control" id="slide1" placeholder="slide" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Image">Image</label>
+                        <input type="text" class="form-control" id="Image" placeholder="Image" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input type="text" class="form-control" id="Title" placeholder="Title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <input type="text" class="form-control" id="Description" placeholder="Description" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <input type="checkbox" id="Status" placeholder="Status" />
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

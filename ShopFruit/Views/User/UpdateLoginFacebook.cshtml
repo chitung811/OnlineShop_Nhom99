@@ -1,0 +1,71 @@
+﻿@model ShopFruit.Models.RegisterModel
+@{
+    ViewBag.Title = "FacebookCallback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="content">
+    <div class="content-page">
+        <div class="container">
+            <div class="shop-banner banner-adv line-scale zoom-image">
+                <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/page/about.jpg" alt="" /></a>
+                <div class="banner-info">
+                    <div class="bread-crumb white"><a href="#" class="white">Home</a><span>Người dùng</span></div>
+                </div>
+            </div>
+            <!-- ENd Banner -->
+            <div class="register-content-box">
+                <h2 class="title30 font-bold text-uppercase text-center">CẬP NHẬT TÀI KHOẢN</h2>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-ms-12">
+                        <div class="check"></div>
+                        <div>
+                            <div class="form-my-account">
+                                @using (Html.BeginForm("UpdateLoginFacebook", "User", FormMethod.Post))
+                                {
+
+                                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                    if (ViewBag.Email != null)
+                                    {
+                                        <div class="alert alert-success">Xin chào: @ViewBag.Email</div>
+                                    }
+                                    <p>
+                                        @Html.LabelFor(model => model.Password, "Mật khẩu")<span class="required">*</span>
+                                        @Html.PasswordFor(model => model.Password)
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </p>
+                                    <p>
+                                        @Html.LabelFor(model => model.ConfirmPassword, "Nhập lại mật khẩu")<span class="required">*</span>
+                                        @Html.PasswordFor(model => model.ConfirmPassword)
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+                                    </p>
+
+                                    <p>
+                                        @Html.LabelFor(model => model.Address, "Địa chỉ")
+                                        @Html.TextBoxFor(model => model.Address)
+
+                                    </p>
+                                    <p>
+                                        @Html.LabelFor(model => model.Phone, "Số điện thoại")
+                                        @Html.TextBoxFor(model => model.Phone)
+
+                                    </p>
+                                    <p>
+                                        <input type="submit" class="register-button" name="register" value="Cập nhật">
+                                    </p>
+
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

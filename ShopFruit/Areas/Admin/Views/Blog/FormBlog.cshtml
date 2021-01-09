@@ -1,0 +1,53 @@
+﻿@model Model.EF.Blog
+@{
+    Layout = null;
+}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Blog</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="BlogID">Blog ID</label>
+                        <input type="text" class="form-control" id="BlogID" placeholder="BlogID" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Image">Hình Ảnh</label>
+                        <input type="text" class="form-control" id="Image" placeholder="Image" />
+                    </div>
+                    <div class="form-group">
+                        <label for="TitleBlog">Tiêu Đề</label>
+                        <input type="text" class="form-control" id="TitleBlog" placeholder="TitleBlog" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Content">Nội Dung</label>
+                        <input type="text" class="form-control" id="Content" placeholder="Content" />
+                    </div>
+                    <div class="form-group">
+                        <label for="DanhMucSanPhamID">DanhMucSanPhamID</label>
+                        <input type="text" class="form-control" id="DanhMucSanPhamID" placeholder="DanhMucSanPhamID" />
+                    </div>
+                    <div class="form-group">
+                        <label for="SanPhamID">SanPhamID</label>
+                        <input type="text" class="form-control" id="SanPhamID" placeholder="SanPhamID" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <input type="number" class="form-control" id="Status" placeholder="Trạng Thái" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

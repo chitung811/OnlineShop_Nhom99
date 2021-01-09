@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">TỔNG QUAN</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        @{Html.RenderAction("SoLuongDonHang", "Home_Admin");}
+        <!-- Earnings (Monthly) Card Example -->
+        @{Html.RenderAction("DonHangDaGiao", "Home_Admin");}
+
+        <!-- Earnings (Monthly) Card Example -->
+        @{Html.RenderAction("TongTien", "Home_Admin");}
+
+        @{Html.RenderAction("SoLuongBlog", "Home_Admin");}
+
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            @{Html.RenderAction("SanPhamConLai", "Home_Admin");}
+        </div>
+    </div>
+
+</div>

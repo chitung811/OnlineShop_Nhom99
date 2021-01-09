@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Model.EF.Footer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@section Footer{
+    <script src="~/Content/Admin/js/footer.js"></script>
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h5 class="m-0 font-weight-bold text-primary">Danh Sách Footer</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <h2>QUẢN LÝ FOOTER</h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Thêm Footer</button><br /><br />
+                <table class="table table-bordered table-hover" id="employeeTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nội dung
+                            </th>
+                            <th>
+                                Trạng thái
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+
+
+                    </thead>
+                    <tbody class="tbody">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Content)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" onclick=getbyID(@item.FooterID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                                    <a class="btn btn-danger btn-sm" onclick=Delete(@item.FooterID);><i class="fa fa-trash fa-lg"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@{Html.RenderAction("FormFooter", "Footer");}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/Admin/js/jquery.dataTables.min.js"></script>
+    <script>
+        function activatejQueryTable() {
+            $("#employeeTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+        });
+    </script>
+}
+
+

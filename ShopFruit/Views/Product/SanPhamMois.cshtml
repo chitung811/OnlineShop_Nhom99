@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+    var sanPhamMois = (List<Model.EF.SanPham>)ViewBag.SanPhamMois;
+}
+
+@foreach (var item in sanPhamMois)
+{
+    <div class="item-wg-product table">
+        <div class="product-thumb">
+            <a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID" class="product-thumb-link zoom-thumb">
+                <img src="~/Content/Client/images/@item.Image" alt="">
+            </a>
+            <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+        </div>
+        <div class="product-info">
+            <h3 class="product-title"><a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID">@item.TenSanPham</a></h3>
+            <div class="product-price">
+                <del class="silver"><span>@item.DonGia.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></del>
+                <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+            </div>
+            <div class="product-rate">
+                <div class="product-rating" style="width:100%"></div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,220 @@
+﻿@model List<ShopFruit.Models.CartItem>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var giaShip = (decimal)ViewBag.GiaShip;
+
+}
+
+<!-- End Header -->
+<div id="content">
+    <div class="content-page">
+        <div class="container">
+            <div class="shop-banner banner-adv line-scale zoom-image">
+                <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/page/about.jpg" alt="" /></a>
+                <div class="banner-info">
+                    <h2 class="title30 color">Check Out</h2>
+                    <div class="bread-crumb white"><a href="#" class="white">Home</a><span>Check Out</span></div>
+                </div>
+            </div>
+            <!-- ENd Banner -->
+            @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+            {
+                <div class="content-cart-checkout woocommerce">
+                    <h2 class="title30 font-bold text-uppercase text-center">Checkout</h2>
+                    <div class="row">
+                        <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1">
+                            @if (Session[ShopFruit.Common.CommonConstants.USER_SESSION] == null)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-ms-12">
+                                        <div class="check">
+                                            <div class="form-my-account">
+                                                <h2 class="title title18 rale-font font-bold text-uppercase">Billing Details</h2>
+                                                <p>
+                                                    <input type="text" id="txtemail" required name="email" placeholder="Nhập email..." />
+                                                </p>
+                                                <p class="clearfix box-col2">
+                                                    <input type="text" id="txtname" required name="shipName" placeholder="Nhập tên..." />
+                                                    <input type="text" id="txtmobile" required name="mobile" placeholder="Nhập số điện thoại..." />
+                                                </p>
+                                                <p><input type="text" id="txtaddress" required name="address" placeholder="Nhập địa chỉ..." /></p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                var session = (ShopFruit.Common.UserLogin)Session[ShopFruit.Common.CommonConstants.USER_SESSION];
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-ms-12">
+                                        <div class="check">
+                                            <div class="form-my-account">
+                                                <h2 class="title title18 rale-font font-bold text-uppercase">Billing Details</h2>
+                                                <p>
+                                                    <input type="text" id="txtemail" value="@session.Gmail" required name="email" placeholder="Nhập email..." />
+                                                </p>
+                                                <p class="clearfix box-col2">
+                                                    <input type="text" id="txtname" value="@session.Name" required name="shipName" placeholder="Nhập tên..." />
+                                                    <input type="text" id="txtmobile" value="@session.Phone" required name="mobile" placeholder="Nhập số điện thoại..." />
+                                                </p>
+                                                <p><input type="text" id="txtaddress" value="@session.Address" required name="address" placeholder="Nhập địa chỉ..." /></p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <h3 class="order_review_heading bg-color">Your order</h3>
+                            <div class="woocommerce-checkout-review-order" id="order_review">
+                                <div class="table-responsive">
+                                    <table class="shop_table woocommerce-checkout-review-order-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-total">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr class="cart_item">
+                                                    <td class="product-name">
+                                                        @item.Product.TenSanPham <span class="product-quantity">× @item.Quantity</span>
+                                                    </td>
+                                                    <td class="product-total">
+                                                        <span class="amount">@((item.Product.PromotionPrice.AsDecimal() * item.Quantity).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR")))<small>đ</small></span>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="cart-subtotal">
+                                                <th>Subtotal</th>
+                                                <td><strong class="amount">@Model.Sum(x => x.Product.PromotionPrice.AsDecimal() * x.Quantity).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></strong></td>
+                                            </tr>
+                                            <tr class="shipping">
+                                                <th>Shipping</th>
+                                                <td>
+                                                    <strong><span class="amount">@giaShip.ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></strong>
+                                                </td>
+                                            </tr>
+                                            <tr class="order-total">
+                                                <th>Total</th>
+                                                <td><strong><span class="amount">@((Model.Sum(x => x.Product.PromotionPrice.AsDecimal() * x.Quantity)+ @giaShip).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR")))<small>đ</small></span></strong> </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="woocommerce-checkout-payment" id="payment">
+                                    <ul class="payment_methods methods list-none">
+                                        <li class="payment_method_bacs">
+                                            <input type="radio" data-order_button_text="" value="bacs" name="payment_method" class="input-radio" id="payment_method_bacs" checked="checked">
+                                            <label for="payment_method_cod">Thanh Toán khi nhận hàng</label>
+                                            <div style="" class="payment_box payment_method_bacs">
+                                                <p>Nhận hàng kiểm tra sản phẩm trước khi thanh toán</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="form-row place-order">
+                                        <input type="submit" data-value="Place order" onclick="KiemTraThongTin();" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt bg-color">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <!-- End Content Pages -->
+</div>
+<script>
+    function KiemTraThongTin() {
+        var isValid = true;
+        if ($('#txtemail').val().trim() == "") {
+            $('#txtemail').css('border-color', 'Red');
+            isValid = false;
+        }
+        if ($('#txtname').val().trim() == "") {
+            $('#txtname').css('border-color', 'Red');
+            isValid = false;
+        }
+        if ($('#txtmobile').val() == "") {
+            $('#txtmobile').css('border-color', 'Red');
+            isValid = false;
+        }
+        if ($('#c').val().trim() == "") {
+            $('#txtaddress').css('border-color', 'Red');
+            isValid = false;
+        }
+        return isValid;
+    }
+    var cart = {
+        init: function () {
+            cart.regEvents();
+        },
+        regEvents: function () {
+            $('.radShip').click(function (e) {
+                var listProduct = $('.txtQuantity');
+                var cartList = [];
+                $.each(listProduct, function (i, item) {
+                    cartList.push({
+                        Quantity: $(item).val(),
+                        Product: {
+                            SanPhamID: $(item).data('id')
+                        }
+                    });
+                });
+                $.ajax({
+                    url: '/Cart/Update',
+                    data: { cartModel: JSON.stringify(cartList) },
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res.status == true) {
+
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.location.href = "/gio-hang";
+                        }
+                    }
+                })
+            });
+            $('#btnDeleteAll').off('click').on('click', function () {
+                $.ajax({
+                    url: '/Cart/DeleteAll',
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res.status == true) {
+                            window.location.href = "/gio-hang";
+                        }
+                    }
+                })
+            });
+            $('.btn-delete').off('click').on('click', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    data: { id: $(this).data('id') },
+                    url: '/Cart/Delete',
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res.status == true) {
+                            window.location.href = "/gio-hang";
+                        }
+                    }
+                })
+            });
+        }
+
+    }
+    cart.init();
+
+</script>
+
+<!-- End Content -->

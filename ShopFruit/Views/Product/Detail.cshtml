@@ -1,0 +1,238 @@
+﻿@model Model.EF.SanPham
+@{
+
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@{
+    var category = (Model.EF.DanhMucSanPham)ViewBag.Category;
+    var relatedProducts = (List<Model.EF.SanPham>)ViewBag.RelatedProducts;
+    var AnhSanPhams = (List<Model.EF.AnhSanPham>)ViewBag.AnhSanPhams;
+
+}
+<!-- End Header -->
+<section id="content">
+    <div class="container">
+        <div class="shop-banner banner-adv line-scale zoom-image">
+            <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/shop/banner-detail.jpg" alt="" /></a>
+            <div class="banner-info">
+                <h2 class="title30 color">Cửa Hàng</h2>
+                <div class="bread-crumb white"><a href="#" class="white">Home</a><span>@category.TenDanhMucSanPham</span></div>
+            </div>
+        </div>
+        <!-- ENd Banner -->
+        <div class="content-shop">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class="sidebar-left sidebar-shop">
+                        
+                        <!-- End Widget -->
+                        <div class="widget widget-category">
+                            <h2 class="title18 title-widget font-bold">Danh Mục Sản Phẩm</h2>
+
+                            <ul class="list-none wg-list-cat">
+                                @{ Html.RenderAction("Category", "Category");}
+
+                            </ul>
+                        </div>
+                        <div class="widget widget-new-product">
+                            <h2 class="title18 title-widget font-bold">Sản Phẩm Mới</h2>
+                            <div class="wg-product-slider">
+                                <div class="wrap-item group-navi" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[768,1]]">
+                                    <div class="item">
+                                        @{Html.RenderAction("SanPhamMois1", "Product"); }
+                                    </div>
+                                    <!-- End Item -->
+                                    <div class="item">
+                                        @{Html.RenderAction("SanPhamMois", "Product"); }
+                                    </div>
+                                    <!-- End Item -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End WIdget -->
+                        <div class="widget widget-tags">
+                            <h2 class="title18 title-widget font-bold">Tìm Kiếm Theo Tags</h2>
+                            <ul class="wg-list-tabs list-inline-block">
+
+                                <li><a href="/Category/CategoryProduct/@category.DanhMucSanPhamID">@category.TenDanhMucSanPham </a></li>
+
+                            </ul>
+                        </div>
+                        <!-- End WIdget -->
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <div class="product-detail">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="detail-gallery">
+                                    <div class="mid" style="margin:15%">
+                                        <img src="~/Content/Client/images/@Model.Image" alt="" />
+                                    </div>
+                                    <div class="gallery-control">
+                                        <div class="carousel" data-visible="4">
+
+                                            <ul class="list-none">
+                                                @foreach (var item in AnhSanPhams)
+                                                {
+                                                    <li style="height:100px"><a href="#" class="active"><img src="~/Content/Client/images/@Model.Image" alt="" /></a></li>
+                                                    <li style="height:100px"><a href="#"><img src="~/Content/Client/images/@item.image1" alt="" /></a></li>
+                                                    <li style="height:100px"><a href="#"><img src="~/Content/Client/images/@item.Image2" alt="" /></a></li>
+                                                    <li style="height:100px"><a href="#"><img src="~/Content/Client/images/@item.Image3" alt="" /></a></li>
+                                                    <li style="height:100px"><a href="#"><img src="~/Content/Client/images/@item.Image4" alt="" /></a></li>
+                                                }
+
+                                            </ul>
+
+                                        </div>
+                                        <a href="#" class="prev"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                                        <a href="#" class="next"><i class="icon ion-ios-arrow-thin-right"></i></a>
+                                    </div>
+                                </div>
+                                <!-- End Gallery -->
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="detail-info">
+                                    <h2 class="title30 font-bold">@Model.TenSanPham</h2>
+                                    <div class="product-price">
+                                        <ins class="color"><span>@Model.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+                                    </div>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:100%"></div>
+                                    </div>
+                                    <script>
+                                        var quanity = $('#quantity').val();
+                                    </script>
+                                    <p class="desc">@Model.TomTat</p>
+                                    <ul class="list-inline-block wrap-qty-extra">
+                                        <li>
+                                            <input disabled id ="quantity" style="width: 100px; height: 33px; border-radius: 5px; border: gray 1px solid; text-align: center;" type="number" name="quantity" value="1"  />
+                                        </li>
+
+                                        <li>
+                                            <a href="/them-gio-hang?productID=@Model.SanPhamID&quantity=1" class="shop-button">Thêm Vào Giỏ</a>
+                                        </li>
+                                    </ul>
+                                    <p class="desc info-extra">
+                                        <label>Danh mục sản phẩm:</label><a href="#" class="color">@category.TenDanhMucSanPham</a>
+                                    </p>
+                                    <p class="desc info-extra">
+                                        <label>Mã sản phẩm:</label><span class="color">@Model.SanPhamID</span>
+                                    </p>
+                                    <p class="desc info-extra">
+                                        <P style="float:left; margin-right:5px;">Chia sẻ:</P>
+                                        <a style="margin:5px;" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/Home/Index"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a style="margin:5px;" href="https://twitter.com/share?text=Home&url=http://localhost:8080/Home/Index"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        <a style="margin:5px;" href="https://www.pinterest.com/pin/create/button/?url=http://localhost:8080/Home/Index&media=Home&description=Home"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                        <a style="margin:5px;" href="https://plus.google.com/share?url=http://localhost:8080/Home/Index"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Product Detail -->
+                    <div class="detail-tabs">
+                        <div class="title-tab-detail">
+                            <ul class="title-tab1 list-inline-block">
+                                <li class="active"><a href="#tab1" class="title14" data-toggle="tab" aria-expanded="true">Mô Tả</a></li>
+                                <li class=""><a href="#tab3" class="title14" data-toggle="tab" aria-expanded="false">Đánh Giá</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div id="tab1" class="tab-pane active">
+                                <div class="detail-descript">
+                                    <h2 class="title30 color">Mô Tả Sản Phẩm</h2>
+                                    <p class="desc">@Model.Description</p>
+
+                                </div>
+                            </div>
+                            
+                            <div id="tab3" class="tab-pane">
+                                <div class="content-tags-detail">
+                                    <h3 class="title14">2 Review for "@Model.TenSanPham"</h3>
+                                    <ul class="list-none list-tags-review">
+                                        <li>
+                                            <div class="review-author">
+                                                <a href="#"><img src="images/shop/author2.jpg" alt=""></a>
+                                            </div>
+                                            <div class="review-info">
+                                                <p class="review-header"><a href="#"><strong>7up-theme</strong></a> – March 30, 2017:</p>
+                                                <div class="product-rate">
+                                                    <div class="product-rating" style="width:100%"></div>
+                                                </div>
+                                                <p class="desc">Really a nice stool. It was better than I expected in quantity. The color is a rich, honey brown and looks a little lighter than pictured but still a great stool for the money.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="add-review-form">
+                                        <h3 class="title14">Thêm Đánh Giá</h3>
+                                        <p>Email của bạn không được công khai, để bảo đảm tính bảo mật *</p>
+                                        <form class="review-form">
+                                            <div>
+                                                <label>Tên *</label>
+                                                <input name="name" id="name" type="text">
+                                            </div>
+                                            <div>
+                                                <label>Email *</label>
+                                                <input name="email" id="email" type="text">
+                                            </div>
+                                            <div>
+                                                <label>Nội Dung *</label>
+                                                <textarea name="messasge" id="message" cols="30" rows="10"></textarea>
+                                            </div>
+                                            <div>
+                                                <input class="shop-button radius4" value="Submit" type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Tabs Detail -->
+                    <div class="related-product">
+                        <h2 class="title30 font-bold">Sản Phẩm Liên Quan</h2>
+                        <div class="related-product-slider product-slider">
+                            <div class="wrap-item group-navi" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[990,3]]">
+                                @foreach (var item in relatedProducts)
+                                {
+                                    var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+                                    <div class="item-product item-product-grid text-center">
+                                        <div class="product-thumb">
+                                            <a href="@url" class="product-thumb-link rotate-thumb">
+                                                <img src="~/Content/Client/images/@item.Image" alt="">
+                                                <img src="~/Content/Client/images/@item.Image" alt="">
+                                            </a>
+                                            <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                            <div class="product-price">
+                                                <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
+                                            </div>
+                                            <div class="product-rate">
+                                                <div class="product-rating" style="width:100%"></div>
+                                            </div>
+                                            <div class="product-extra-link">
+                                                
+                                                <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Thêm Vào Giỏ</a>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Related Product -->
+                </div>
+            </div>
+        </div>
+        <!-- End Content Shop -->
+    </div>
+</section>
+<!-- End Content -->
