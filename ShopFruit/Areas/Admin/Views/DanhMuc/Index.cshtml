@@ -14,11 +14,11 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h5 class="m-0 font-weight-bold text-primary">Danh Sách Danh Mục</h5>
+            <h5 class="m-0 font-weight-bold text-dark">Danh Sách Danh Mục</h5>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">
                     Thêm Danh Mục</button><br /><br />
                     <table class="table table-striped table-condensed" id="employeeTable">
                         <thead>
@@ -53,8 +53,8 @@
                                         @Html.DisplayFor(modelItem => item.Status)
                                     </td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" onclick=getbyID(@item.DanhMucID);><i class="fa fa-pen-fancy fa-lg"></i></a>
-                                        <a class="btn btn-danger btn-sm" onclick=Delete(@item.DanhMucID);><i class="fa fa-trash fa-lg"></i></a>
+                                        <a class="btn btn-success btn-sm" onclick=getbyID(@item.DanhMucID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                                        <a class="btn btn-warning btn-sm" onclick=Delete(@item.DanhMucID);><i class="fa fa-trash fa-lg"></i></a>
                                     </td>
                                 </tr>
                             }
