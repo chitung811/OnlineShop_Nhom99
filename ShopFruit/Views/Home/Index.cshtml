@@ -49,7 +49,7 @@
                             {
                                 if (dm.DanhMucID == dmsp.DanhMucID)
                                 {
-                                    <li><a href="/danh-muc/@dmsp.MetaKeyword/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>@dmsp.TenDanhMucSanPham.Count()</span></a></li>
+                                    <li><a href="/danh-muc/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>@dmsp.TenDanhMucSanPham.Count()</span></a></li>
                                 }
 
                             }
@@ -78,23 +78,6 @@
     <!-- End List Cat -->
     <div class="featured-product2">
         <h2 class="color2 title30 text-center title-box2">featured products</h2>
-        <ul class="list-inline-block text-center title-tab-icon">
-            <li>
-                <a href="#tab2" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru1.png" alt="" /><span>Watermelon</span></a>
-            </li>
-            <li>
-                <a href="#tab1" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru2.png" alt="" /><span>Apples</span></a>
-            </li>
-            <li class="active">
-                <a href="#tab2" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru3.png" alt="" /><span>Grapes</span></a>
-            </li>
-            <li>
-                <a href="#tab1" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru4.png" alt="" /><span>banana</span></a>
-            </li>
-            <li>
-                <a href="#tab2" data-toggle="tab"><img src="~/Content/Client/images/home/home2/fru5.png" alt="" /><span>Potatoes</span></a>
-            </li>
-        </ul>
         <div class="tab-content">
             <div id="tab2" class="tab-pane active">
                 <div class="product-slider">
@@ -153,15 +136,8 @@
                                         <div class="product-rating" style="width:100%"></div>
                                     </div>
                                     <div class="product-extra-link">
-                                        <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
                                         <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
-                                        <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
                                     </div>
-                                    <ul class="product-in-cat list-inline-block">
-                                        <li><a href="#">Fruits</a></li>
-                                        <li><a href="#">Breads</a></li>
-                                        <li><a href="#">Juices</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         }
@@ -203,9 +179,7 @@
                                     <div class="product-rating" style="width:100%"></div>
                                 </div>
                                 <div class="product-extra-link">
-                                    <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
                                     <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
-                                    <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
                                 </div>
                             </div>
                         </div>
@@ -268,67 +242,4 @@
 
     
 <!-- End Farm -->
-<div class="container">
-    <div class="box-brand2">
-        <h2 class="color2 title30 text-center title-box2">brands</h2>
-        <div class="list-brand2">
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br1.jpg" alt="" /></a>
-            </div>
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br2.jpg" alt="" /></a>
-            </div>
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br3.jpg" alt="" /></a>
-            </div>
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br4.jpg" alt="" /></a>
-            </div>
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br5.jpg" alt="" /></a>
-            </div>
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br6.jpg" alt="" /></a>
-            </div>
-            <div class="item-brand2">
-                <a href="#" class="border"><img class=" wobble-horizontal" src="~/Content/Client/images/home/home2/br7.jpg" alt="" /></a>
-            </div>
-        </div>
-    </div>
-    <!-- End Brand -->
-    <div class="vege-banner wow bounceIn">
-        <a href="#" class="push"><img src="~/Content/Client/images/home/home2/vege-banner.png" alt="" /></a>
-    </div>
-    <!-- End vege banner -->
-    <div class="photo-instagram">
-        <h2 class="color2 title-box2 title30 text-center">#Photo in Instagram</h2>
-        <ul class="list-inline-block text-center list-photo-in">
-            <li>
-                <div class="banner-adv zoom-image overlay-image">
-                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in1.png" alt="" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="banner-adv zoom-image overlay-image">
-                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in2.png" alt="" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="banner-adv zoom-image overlay-image">
-                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in3.png" alt="" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="banner-adv zoom-image overlay-image">
-                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in4.png" alt="" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="banner-adv zoom-image overlay-image">
-                    <a href="#" class="adv-thumb-link"><img src="~/Content/Client/images/home/home2/in5.png" alt="" /></a>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <!-- End Photo -->
-</div>
+
