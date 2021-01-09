@@ -58,7 +58,7 @@
                                             i++;
                                         }
                                     }
-                                        <li><a href="/danh-muc/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>{i}</span></a></li>
+                                        <li><a href="/danh-muc/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>@i</span></a></li>
                                 }
 
                             }
@@ -231,7 +231,7 @@
                                         </div>
                                         <h3 class="product-title"><a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID">@item.TenSanPham</a></h3>
                                         <div class="product-extra-link">
-                                            <a href="/them-gio-hang/@item.SanPhamID" class="addcart-link">Thêm vào giỏ</a>
+                                            <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Thêm vào giỏ</a>
 
                                         </div>
                                         
