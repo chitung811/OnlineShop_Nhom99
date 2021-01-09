@@ -254,7 +254,7 @@
                     e.preventDefault();
                 });
             });
-        $('#txtSearch').autocomplete({
+        @*$('#txtSearch').autocomplete({
             source: '@Url.Action("GetSearchValue", "Search")',
             minLength: 1,
             select: function (event, ui) {
@@ -274,7 +274,7 @@
             return $('<li style="list-style-type: none";></li>')
                 .data("item.autocomplete", item)
                 .append(inner_html)
-                .appendTo(ul);
+                .appendTo(ul);*@
         };
 
     });
