@@ -206,7 +206,20 @@
         </section>
         @RenderBody()
         <footer id="footer">
-            @{Html.RenderAction("Footer", "Home", new { area = "" });}
+            @*@{Html.RenderAction("Footer", "Home", new { area = "" });}*@
+            <div class="footer2 box-parallax">
+                <div class="container">
+                    <div class="main-footer2">
+
+                    </div>
+                    <div class="logo-footer2 text-center">
+                        <img src="/Content/Client/images/home/home2/logo-footer.png" />
+                    </div>
+                    <div class="bottom-footer2 text-center">
+                        <p class="copyright2 desc white">Fruit ©Nhom99</p>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
     <script type="text/javascript" src="~/Content/Client/js/libs/jquery-3.2.1.min.js"></script>

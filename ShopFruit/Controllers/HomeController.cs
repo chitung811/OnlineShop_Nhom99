@@ -23,6 +23,7 @@ namespace ShopFruit.Controllers
             ViewBag.SanPhamBanChay = productDAO.SanPhamBanChay(4);
             ViewBag.DanhMuc = DanhMucDAO.ListAll();
             ViewBag.DanhMucSanPham = DanhMucSanPhamDAO.ListCategoryProduct();
+            ViewBag.SanPham = productDAO.ListAll();
             return View();
         }
         

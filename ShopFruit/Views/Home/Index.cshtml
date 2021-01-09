@@ -8,6 +8,7 @@
     var SanPhamBanChay = (List<Model.EF.SanPham>)ViewBag.SanPhamBanChay;
     var DanhMuc = (List<Model.EF.DanhMuc>)ViewBag.DanhMuc;
     var DanhMucSanPham = (List<Model.EF.DanhMucSanPham>)ViewBag.DanhMucSanPham;
+    var SanPham = (List<Model.EF.SanPham>)ViewBag.SanPham;
 }
 }
 
@@ -47,14 +48,21 @@
                         <ul class="list-none cat-menu2">
                             @foreach (var dmsp in DanhMucSanPham)
                             {
+                                int i = 0;
                                 if (dm.DanhMucID == dmsp.DanhMucID)
                                 {
-                                    <li><a href="/danh-muc/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>@dmsp.TenDanhMucSanPham.Count()</span></a></li>
+                                    foreach (var sp in SanPham)
+                                    {
+                                        if(sp.DanhMucSanPhamID == dmsp.DanhMucSanPhamID)
+                                        {
+                                            i++;
+                                        }
+                                    }
+                                        <li><a href="/danh-muc/@dmsp.DanhMucSanPhamID">@dmsp.TenDanhMucSanPham<span>{i}</span></a></li>
                                 }
 
                             }
                         </ul>
-                        <a href="#" class="btn-viewall color">View All</a>
                         @if (dm.DanhMucID == 1)
                         {
                             <div class="cat-menu-img"><img src="~/Content/Client/images/home/home2/menu3.png" alt="" /></div>

@@ -36,30 +36,6 @@
 
                             </ul>
                         </div>
-                        <div class="widget widget-new-product">
-                            <h2 class="title18 title-widget font-bold">Sản Phẩm Mới</h2>
-                            <div class="wg-product-slider">
-                                <div class="wrap-item group-navi" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[768,1]]">
-                                    <div class="item">
-                                        @{Html.RenderAction("SanPhamMois1", "Product"); }
-                                    </div>
-                                    <!-- End Item -->
-                                    <div class="item">
-                                        @{Html.RenderAction("SanPhamMois", "Product"); }
-                                    </div>
-                                    <!-- End Item -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End WIdget -->
-                        <div class="widget widget-tags">
-                            <h2 class="title18 title-widget font-bold">Tìm Kiếm Theo Tags</h2>
-                            <ul class="wg-list-tabs list-inline-block">
-
-                                <li><a href="/Category/CategoryProduct/@category.DanhMucSanPhamID">@category.TenDanhMucSanPham </a></li>
-
-                            </ul>
-                        </div>
                         <!-- End WIdget -->
                     </div>
                 </div>
@@ -115,19 +91,6 @@
                                             <a href="/them-gio-hang?productID=@Model.SanPhamID&quantity=1" class="shop-button">Thêm Vào Giỏ</a>
                                         </li>
                                     </ul>
-                                    <p class="desc info-extra">
-                                        <label>Danh mục sản phẩm:</label><a href="#" class="color">@category.TenDanhMucSanPham</a>
-                                    </p>
-                                    <p class="desc info-extra">
-                                        <label>Mã sản phẩm:</label><span class="color">@Model.SanPhamID</span>
-                                    </p>
-                                    <p class="desc info-extra">
-                                        <P style="float:left; margin-right:5px;">Chia sẻ:</P>
-                                        <a style="margin:5px;" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/Home/Index"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a style="margin:5px;" href="https://twitter.com/share?text=Home&url=http://localhost:8080/Home/Index"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a style="margin:5px;" href="https://www.pinterest.com/pin/create/button/?url=http://localhost:8080/Home/Index&media=Home&description=Home"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                        <a style="margin:5px;" href="https://plus.google.com/share?url=http://localhost:8080/Home/Index"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +100,7 @@
                         <div class="title-tab-detail">
                             <ul class="title-tab1 list-inline-block">
                                 <li class="active"><a href="#tab1" class="title14" data-toggle="tab" aria-expanded="true">Mô Tả</a></li>
-                                <li class=""><a href="#tab3" class="title14" data-toggle="tab" aria-expanded="false">Đánh Giá</a></li>
+                                @*<li class=""><a href="#tab3" class="title14" data-toggle="tab" aria-expanded="false">Đánh Giá</a></li>*@
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -149,7 +112,7 @@
                                 </div>
                             </div>
                             
-                            <div id="tab3" class="tab-pane">
+                            @*<div id="tab3" class="tab-pane">
                                 <div class="content-tags-detail">
                                     <h3 class="title14">2 Review for "@Model.TenSanPham"</h3>
                                     <ul class="list-none list-tags-review">
@@ -188,11 +151,11 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                     <!-- End Tabs Detail -->
-                    <div class="related-product">
+                    @*<div class="related-product">
                         <h2 class="title30 font-bold">Sản Phẩm Liên Quan</h2>
                         <div class="related-product-slider product-slider">
                             <div class="wrap-item group-navi" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[990,3]]">
@@ -227,7 +190,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- End Related Product -->
                 </div>
             </div>
