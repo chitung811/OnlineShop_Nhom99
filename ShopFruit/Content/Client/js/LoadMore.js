@@ -3,7 +3,6 @@
     $(function () {
         var url = "/Category/LoadMoreProduct/";
         var url1 = window.location.href;
-        debugger
         console.log(url1);
         var array = url1.split('/');
         var id = array[array.length - 1];

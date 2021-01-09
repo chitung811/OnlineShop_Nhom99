@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fruit Shop is new Html theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Html theme, with multiple versions for homepage and multiple templates for sub pages as well" />
+    <meta name="description" content="eShop" />
     <meta name="keywords" content="Fruit,7uptheme" />
     <meta name="robots" content="noodp,index,follow" />
     <meta name='revisit-after' content='1 days' />
@@ -108,9 +108,7 @@
                                 <div class="col-md-4 col-sm-4 hidden-xs">
                                     <ul class="currency-language list-inline-block pull-left">
                                         <li>
-                                            <div class="language-box">
-                                                <a href="#" class="language-current"><img src="~/Content/Client/images/icon/flag-en.png" alt=""><span>English</span></a>
-                                            </div>
+                                            
                                         </li>
                                     </ul>
                                 </div>
@@ -161,7 +159,6 @@
                                         <h1 class="hidden">Fruit Shop</h1>
                                         <a href="/" ref="nofollow"><img src="~/Content/Client/images/home/home2/logo.png" alt="" /></a>
                                     </div>
-                                    @{ Html.RenderAction("HeaderCart", "Home", new { area = "" });}
                                     <form action="/tim-kiem" method="get" class="search-form search-form2 pull-right">
                                         <input id="txtSearch" name="term" class="gray" placeholder="Gõ từ khoá...." type="text">
                                         <input type="submit" value="">
@@ -194,17 +191,12 @@
                                             <li class="hover-nav">
                                                 <a href="@Url.Action("Index","Blog")">Blog</a>
                                             </li>
-                                            <li class="hover-nav"><a href="/lien-he">Liên Hệ</a></li>
-                                            <li class="hover-nav"><a href="/gioi-thieu">Giới Thiệu</a></li>
+                                            <li class="hover-nav">
+                                                <a href="/gio-hang">Giỏ hàng</a>
+                                            </li>
                                         </ul>
-                                        <a href="#" class="toggle-mobile-menu"><span></span></a>
                                     </nav>
-                                    <div class="top-social pull-right">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tuoitre.vn/"><i class="fab fa-facebook"></i></a>
-                                        <a href="https://twitter.com/share?text=Home&url=https://tuoitre.vn/"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://www.pinterest.com/pin/create/button/?url=https://tuoitre.vn/&media=Home&description=Home"><i class="fab fa-pinterest"></i></a>
-                                        <a href="https://plus.google.com/share?url=https://tuoitre.vn/"><i class="fab fa-google"></i></a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

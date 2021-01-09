@@ -10,7 +10,6 @@
             <a href="#" class="adv-thumb-link"><img src="~/Content/client/images/shop/banner-grid.jpg" alt="" /></a>
             <div class="banner-info">
                 <h2 class="title30 color">Shop</h2>
-                <div class="bread-crumb white"><a href="#" class="white">Home</a><span>Sản phẩm</span></div>
             </div>
         </div>
         <!-- ENd Banner -->
@@ -18,12 +17,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <aside class="sidebar-left sidebar-shop">
-                        <div class="widget widget-search">
-                            <form class="search-form">
-                                <input onblur="if (this.value=='') this.value = this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value = ''" value="Search..." type="text">
-                                <input type="submit" value="">
-                            </form>
-                        </div>
+                        
                         <!-- End Widget -->
                         <div class="widget widget-category">
                             <h2 class="title18 title-widget font-bold">Product Categories</h2>
@@ -32,66 +26,10 @@
                             </ul>
                         </div>
                         <!-- ENd Widget -->
-                        <div class="widget widget-filter-price">
-                            <h2 class="title18 title-widget font-bold">Filter bY Price</h2>
-                            <div class="range-filter">
-                                <div class="slider-range"></div>
-                                <div class="silver table">
-                                    <div class="text-left"><button class="btn-filter-price text-uppercase shop-button">Filter</button></div>
-                                    <div class="text-right"><div class="amount"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Filter Price -->
-                        <div class="widget widget-new-product">
-                            <h2 class="title18 title-widget font-bold">New Arrivals</h2>
-                            <div class="wg-product-slider">
-                                <div class="wrap-item group-navi" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[768,1]]">
-                                    <div class="item">
-                                        @{Html.RenderAction("SanPhamMois", "Product", "ShopFruit.Controllers"); }
-                                    </div>
-                                    <!-- End Item -->
-                                    <div class="item">
-                                        @{Html.RenderAction("SanPhamMois1", "Product", "ShopFruit.Controllers"); }
-                                    </div>
-                                    <!-- End Item -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End WIdget -->
-                        <div class="widget widget-tags">
-                            <h2 class="title18 title-widget font-bold">Search by Tags</h2>
-                            <ul class="wg-list-tabs list-inline-block">
-                                @{ Html.RenderAction("Category", "Category");}
-                            </ul>
-                        </div>
-                        <!-- End WIdget -->
                     </aside>
                 </div>
                 <div class="col-md-9 col-sm-8 col-xs-12">
                     <div class="main-content-shop">
-                        <div class="shop-pagibar clearfix">
-                            <p class="desc silver pull-left">Showing @count of @countAll results</p>
-                            <ul class="wrap-sort-view list-inline-block pull-right">
-                                <li>
-                                    <div class="sort-bar">
-                                        <span class="inline-block">Sort:</span>
-                                        <div class="select-box border radius6 inline-block">
-                                            <select class="radius6" id="selectSort" name="Type">
-                                                <option value="1">Recommended</option>
-                                                <option value="2">Price</option>
-                                                <option value="3">Name</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="view-bar">
-                                        <a class="grid-view active" href="#"></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="product-grid-view">
                             <div class="row">
                                 @foreach (var item in Model)
@@ -115,9 +53,7 @@
                                                     <div class="product-rating" style="width:100%"></div>
                                                 </div>
                                                 <div class="product-extra-link">
-                                                    <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
                                                     <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
-                                                    <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
                                                 </div>
                                             </div>
                                         </div>
