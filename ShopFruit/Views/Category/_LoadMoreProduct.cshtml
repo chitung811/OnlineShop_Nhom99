@@ -13,7 +13,7 @@
                 <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
             </div>
             <div class="product-info">
-                <h3 class="product-title"><a href="detail.html">@item.TenSanPham</a></h3>
+                <h3 class="product-title"><a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID" class="product-thumb-link rotate-thumb">@item.TenSanPham</a></h3>
                 <div class="product-price">
                     <del class="gray"><span>@item.DonGia.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></del>
                     <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
@@ -22,9 +22,7 @@
                     <div class="product-rating" style="width:100%"></div>
                 </div>
                 <div class="product-extra-link">
-                    <a href="#" class="wishlist-link"><i class="fa fa-heart-o" aria-hidden="true"></i><span>Wishlist</span></a>
                     <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
-                    <a href="#" class="compare-link"><i class="fa fa-compress" aria-hidden="true"></i><span>Compare</span></a>
                 </div>
             </div>
         </div>

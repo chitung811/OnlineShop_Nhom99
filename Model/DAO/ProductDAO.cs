@@ -1,6 +1,9 @@
 ﻿using Model.EF;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +17,7 @@ namespace Model.DAO
         {
             db = new FruitShopDbContext();
         }
+        string cs = ConfigurationManager.ConnectionStrings["FruitShopDbContext"].ConnectionString;
 
         public List<SanPham> ListNewProduct(int top)
         {
@@ -49,6 +53,36 @@ namespace Model.DAO
         public List<SanPham> ListProductByCategory(long? id)
         {
             return db.SanPhams.Where(x => x.DanhMucSanPhamID == id).ToList();
+        }
+        public List<SanPham> ListAll()
+        {
+            List<SanPham> lst = new List<SanPham>();
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("SelectSanPham", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataReader rdr = com.ExecuteReader();
+                while (rdr.Read())
+                {
+                    lst.Add(new SanPham
+                    {
+                        SanPhamID = (long)rdr["SanPhamID"],
+                        Image = rdr["Image"].ToString(),
+                        TenSanPham = rdr["TenSanPham"].ToString(),
+                        DonGia = rdr["DonGia"].ToString(),
+                        PromotionPrice = rdr["PromotionPrice"].ToString(),
+                        TomTat = rdr["TomTat"].ToString(),
+                        Description = rdr["Description"].ToString(),
+                        MetaKeyword = rdr["MetaKeyword"].ToString(),
+                        Quantity = (int)rdr["Quantity"],
+                        DanhMucSanPhamID = (int)rdr["DanhMucSanPhamID"],
+                        Status = (int)rdr["Status"]
+
+                    });
+                }
+                return lst;
+            }
         }
     }
 }
