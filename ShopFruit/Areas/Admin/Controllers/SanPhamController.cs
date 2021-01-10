@@ -5,6 +5,7 @@ using PagedList;
 using ShopFruit.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -38,9 +39,11 @@ namespace ShopFruit.Areas.Admin.Controllers
         }
         public JsonResult Add(SanPham ID)
         {
+           
             SetViewBag();
             return Json(SanPhamDAO.Add(ID), JsonRequestBehavior.AllowGet);
         }
+      
         public void SetViewBag()
         {
             DanhMucSanPhamDAO dao = new DanhMucSanPhamDAO();
