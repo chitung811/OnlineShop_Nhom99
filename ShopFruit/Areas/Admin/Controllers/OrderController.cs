@@ -40,10 +40,8 @@ namespace ShopFruit.Areas.Admin.Controllers
             var order = orderDAO.ListAll().Find(x => x.OrderID == ID); ;
             return Json(order, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Update(Order ID)
+        public JsonResult Update(long ID)
         {
-            ID.CreateDate = DateTime.Now;
-            ID.UserID = 0;
             return Json(orderDAO.Update(ID), JsonRequestBehavior.AllowGet);
         }
         public JsonResult Delete(long ID)
@@ -54,6 +52,15 @@ namespace ShopFruit.Areas.Admin.Controllers
         {
 
             return PartialView();
+        }
+        public ActionResult Detail(int id)
+        {
+            var order = new OrderDAO().OrderDetail(id);
+
+            ViewBag.OrderDetail = new OrderDetailDAO().ListAll();
+            ViewBag.SanPham= new ProductDAO().ListAll();
+            ViewBag.AnhSanPhams = new ProductDAO().ListImage(id);
+            return View(order);
         }
     }
 }

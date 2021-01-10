@@ -30,6 +30,7 @@ function Add() {
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
+            console.log($(Image));
         }
     });
 }

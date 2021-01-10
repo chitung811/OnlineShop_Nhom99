@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Model.EF.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@{
+    var Products = (List<Model.EF.SanPham>)ViewBag.Products;
+    var AnhSanPhams = (List<Model.EF.AnhSanPham>)ViewBag.AnhSanPhams;
+    var OrderDetail = (List<Model.EF.OrderDetail>)ViewBag.OrderDetail;
+}
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Ảnh sản phẩm
+        </th>
+        <th>
+           Số lượng
+        </th>
+        <th>
+            Giá
+        </th>
+    </tr>
+
+    
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

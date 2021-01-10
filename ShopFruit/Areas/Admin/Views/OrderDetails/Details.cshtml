@@ -1,0 +1,52 @@
+﻿@model Model.EF.Order
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@{
+    var Products = (List<Model.EF.SanPham>)ViewBag.Products;
+    var AnhSanPhams = (List<Model.EF.AnhSanPham>)ViewBag.AnhSanPhams;
+    var OrderDetail = (List<Model.EF.OrderDetail>)ViewBag.OrderDetail;
+}
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Ảnh sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Giá
+        </th>
+    </tr>
+
+    @foreach (var item in OrderDetail)
+    {
+        if(item.OrderID == 1)
+        {
+            foreach(var item2 in Products) {
+                if(item2.SanPhamID == item.SanPhamID)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Content/Client/images/@item2.Image" />
+                        </td>
+                        <td>
+                            @item.Quantity
+                        </td>
+                        <td>
+                            @item.DonGia
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    }
+
+
+</table>
