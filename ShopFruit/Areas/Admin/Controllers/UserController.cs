@@ -40,7 +40,7 @@ namespace ShopFruit.Areas.Admin.Controllers
             ID.Password = Encryptor.MD5Hash(ID.Password);
             return Json(userDb.Add(ID), JsonRequestBehavior.AllowGet);
         }
-        
+    
         public JsonResult GetbyID(long ID)
         {
             var user = userDb.ListAll().Find(x => x.UserID.Equals(ID));
