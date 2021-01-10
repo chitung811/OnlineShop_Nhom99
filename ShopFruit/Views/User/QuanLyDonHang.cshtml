@@ -1,43 +1,16 @@
-﻿
+﻿@model List<Model.ViewModel.DonHangViewModel>
 @{
     ViewBag.Title = "QuanLyDonHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/Admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 
 <h2 style="text-align:center; margin-top:20px"><strong>Quản Lý Đơn Hàng</strong></h2>
 <p></p>
 <p><hr /></p>
 <br />
 
-<div class="card shadow mb-4" style="margin:10px">
-    <div class="" style="align-items:center;background-color:hsl(225, 40%, 98%);border-radius:4.6px 4.6px 0px 0px;border-width:0px 0px 1px;color:hsl(233, 7%, 55%);display:flex;justify-content:space-between; line-height:24px;padding:16px 20px;text-align:left;">
-        <h5 class="" style="color: hsl(233, 94%, 48%);font-weight:700;line-height:19.2px;text-align:left;">
-            Đơn Hàng Hiện Tại
-        </h5>
-    </div>
-    <div class="card-body" style="color: hsl(233, 13%, 79%);line-height:24px;padding:20px;text-align:left;border: 1px solid;border-radius: 0px 0px 10px 10px;">
-        <div class="table-responsive" style="color:hsl(233, 7%, 55%);line-height:24px;padding:20px;text-align:left;">
 
-            @{Html.RenderAction("DonHangDangDat", "User");}
-        </div>
-    </div>
-</div>
-<p><br /></p>
-<div class="card shadow mb-4" style="margin:10px">
-    <div class="" style="align-items:center;background-color:hsl(225, 40%, 98%);border-radius:4.6px 4.6px 0px 0px;border-width:0px 0px 1px;color:hsl(233, 7%, 55%);display:flex;justify-content:space-between; line-height:24px;padding:16px 20px;text-align:left;">
-        <h5 class="" style="color: hsl(233, 94%, 48%);font-weight:700;line-height:19.2px;text-align:left;">
-            Đơn Hàng Đã Giao
-        </h5>
-    </div>
-    <div class="card-body" style="color: hsl(233, 13%, 79%);line-height:24px;padding:20px;text-align:left;border: 1px solid;border-radius: 0px 0px 10px 10px;">
-        <div class="table-responsive" style="color:hsl(233, 7%, 55%);line-height:24px;padding:20px;text-align:left;">
-
-            @{Html.RenderAction("DonHangDaGiao", "User");}
-        </div>
-    </div>
-</div>
-<p><br /></p>
 
 <div class="card shadow mb-4" style="margin:10px">
     <div class="" style="align-items:center;background-color:hsl(225, 40%, 98%);border-radius:4.6px 4.6px 0px 0px;border-width:0px 0px 1px; display:flex;justify-content:space-between; line-height:24px;padding:16px 20px;text-align:left;">
@@ -48,9 +21,43 @@
     <div class="card-body" style="color: hsl(233, 13%, 79%);line-height:24px;padding:20px;text-align:left;border: 1px solid;border-radius: 0px 0px 10px 10px;">
         <div class="table-responsive" style="color:hsl(233, 7%, 55%);line-height:24px;padding:20px;text-align:left;">
 
-            @{Html.RenderAction("TatCaDonHang", "User");}
+            @*@{Html.RenderAction("TatCaDonHang", "User");}*@
         </div>
     </div>
 </div>
+<table>
+    <tr>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.CreateDate
+            </td>
+            @if (item.Status == false)
+            {
+                <td>
+                    Đã giao hàng
+                </td>
+            }
+            else
+            {
+                <td>
+                    @item.TongTien
+                </td>
+            }
+        </tr>
+
+    }
+</table>
 
 <p><br /></p>
