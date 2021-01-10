@@ -59,7 +59,6 @@ namespace ShopFruit.Areas.Admin.Controllers
 
             ViewBag.OrderDetail = new OrderDetailDAO().ListAll();
             ViewBag.SanPham= new ProductDAO().ListAll();
-            ViewBag.AnhSanPhams = new ProductDAO().ListImage(id);
             return View(order);
         }
     }
