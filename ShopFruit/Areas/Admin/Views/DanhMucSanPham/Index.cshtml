@@ -34,9 +34,6 @@
 									Danh mục
 								</th>
 								<th>
-									Trạng Thái
-								</th>
-								<th>
 									Action
 								</th>
 							</tr>
@@ -52,9 +49,6 @@
 
 									<td>
 										@Html.DropDownListFor(modelItem => item.DanhMucID, (IEnumerable<SelectListItem>)ViewBag.CategoryID, new { @class = "form-control", @disabled = "disabled" })
-									</td>
-									<td>
-										@Html.DisplayFor(modelItem => item.Status)
 									</td>
 									<td>
 										<a class="btn btn-success btn-sm" onclick=getbyID(@item.DanhMucSanPhamID);><i class="fa fa-pen-fancy fa-lg"></i></a>

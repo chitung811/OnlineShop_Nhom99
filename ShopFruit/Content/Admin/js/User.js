@@ -5,15 +5,17 @@ function Add() {
     if (res == false) {
         return false;
     }
+    var a = true;
+    var loai = "ADMIN";
     var empObj = {
         UserID: $('#UserID').val(),
         Gmail: $('#Gmail').val(),
         Password: $('#Password').val(),
-        GroupID: $('#GroupID').val(),
+        GroupID: loai,
         Name: $('#Name').val(),
         Address: $('#Address').val(),
         Phone: $('#Phone').val(),
-        Status: $('#Status').is(":checked") ? true : false
+        Status: a
     };
     $.ajax({
         url: "/Admin/User/Add",
@@ -72,6 +74,8 @@ function Update() {
     if (res == false) {
         return false;
     }
+
+    var a = true;
     var empObj = {
         UserID: $('#UserID').val(),
         Gmail: $('#Gmail').val(),
@@ -80,7 +84,7 @@ function Update() {
         Name: $('#Name').val(),
         Address: $('#Address').val(),
         Phone: $('#Phone').val(),
-        Status: $('#Status').is(":checked") ? true : false
+        Status: a
     };
     $.ajax({
         url: "/Admin/User/Update",
@@ -182,12 +186,12 @@ function validate() {
     else {
         $('#Phone').css('border-color', 'lightgrey');
     }
-    if ($('#Status').val().trim() == "") {
-        $('#Status').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#Status').css('border-color', 'lightgrey');
-    }
+    //if ($('#Status').val().trim() == "") {
+    //    $('#Status').css('border-color', 'Red');
+    //    isValid = false;
+    //}
+    //else {
+    //    $('#Status').css('border-color', 'lightgrey');
+    //}
     return isValid;
 }  
