@@ -5,12 +5,13 @@ function Add() {
     if (res == false) {
         return false;
     }
+    var status = 1;
     var dmspObj = {
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
         TenDanhMucSanPham: $('#TenDanhMucSanPham').val(),
         MetaKeyword: $('#MetaKeyword').val(),
         DanhMucID: $('#DanhMucID').val(),
-        Status: $('#Status')
+        Status: status
     };
     $.ajax({
         url: "/DanhMucSanPham/Add",
@@ -61,12 +62,13 @@ function Update() {
     if (res == false) {
         return false;
     }
+    var status = 1;
     var dmspObj = {
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
         TenDanhMucSanPham: $('#TenDanhMucSanPham').val(),
         MetaKeyword: $('#MetaKeyword').val(),
         DanhMucID: $('#DanhMucID').val(),
-        Status: $('#Status')
+        Status: status
     };
     $.ajax({
         url: "/DanhMucSanPham/Update",
@@ -143,13 +145,6 @@ function validate() {
     }
     else {
         $('#DanhMucID').css('border-color', 'lightgrey');
-    }
-    if ($('#Status').val().trim() == "") {
-        $('#Status').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#Status').css('border-color', 'lightgrey');
     }
     return isValid;
 }

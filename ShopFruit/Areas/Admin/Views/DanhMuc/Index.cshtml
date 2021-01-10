@@ -24,33 +24,35 @@
                         <thead>
                             <tr>
                                 <th>
+                                    ID danh mục
+                                </th>
+                                <th>
                                     Tên Danh Mục
                                 </th>
-                                
+
+
                                 <th>
-                                    Trạng Thái
-                                </th>
-                                <th>
-                                    Action
+                                    
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="tbody">
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.TenDanhMuc)
-                                    </td>     
-                                    <td>
-                                        
-                                        @Html.DisplayFor(modelItem => item.Status)
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-success btn-sm" onclick=getbyID(@item.DanhMucID);><i class="fa fa-pen-fancy fa-lg"></i></a>
-                                        <a class="btn btn-warning btn-sm" onclick=Delete(@item.DanhMucID);><i class="fa fa-trash fa-lg"></i></a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.DanhMucID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenDanhMuc)
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-success btn-sm" onclick=getbyID(@item.DanhMucID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                                    <a class="btn btn-warning btn-sm" onclick=Delete(@item.DanhMucID);><i class="fa fa-trash fa-lg"></i></a>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

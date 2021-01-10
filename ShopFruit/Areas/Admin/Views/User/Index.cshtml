@@ -19,10 +19,7 @@
                     Gmail
                 </th>
                 <th>
-                    Mật khẩu
-                </th>
-                <th>
-                    GroupID
+                    Loại
                 </th>
                 <th>
                     Tên
@@ -34,9 +31,6 @@
                     Số điện thoại
                 </th>
                 <th>
-                    Trạng thái
-                </th>
-                <th>
                     Action
                 </th>
             </tr>
@@ -44,36 +38,38 @@
         <tbody class="tbody">
             @foreach (var item in Model)
             {
-                <tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gmail)
+                </td>
+                @if (item.GroupID == null || item.GroupID == "MEMBER")
+                {
                     <td>
-                        @Html.DisplayFor(modelItem => item.Gmail)
+                        Khách hàng
                     </td>
+                }
+                else
+                {
+                    <td>
+                        Quản trị viên
+                    </td>
+                }
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Password)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GroupID)
-                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Phone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        <a class="btn btn-success btn-sm" onclick=getbyID(@item.UserID);><i class="fa fa-pen-fancy fa-lg"></i></a>
-                        <a class="btn btn-warning btn-sm" onclick=Delete(@item.UserID);><i class="fa fa-trash fa-lg"></i></a>
-                    </td>
-                </tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    <a class="btn btn-success btn-sm" onclick=getbyID(@item.UserID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                    <a class="btn btn-warning btn-sm" onclick=Delete(@item.UserID);><i class="fa fa-trash fa-lg"></i></a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

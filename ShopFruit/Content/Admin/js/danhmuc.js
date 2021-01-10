@@ -5,14 +5,15 @@ function Add() {
     if (res == false) {
         return false;
     }
+    var status = 1;
     var dmObj = {
         DanhMucID: $('#SanPhamID').val(),
         TenDanhMuc: $('#TenDanhMuc').val(),
         MetaKeyword: $('#MetaKeyword').val(),
-        Status: $('#Status')
+        Status: status
     };
     $.ajax({
-        url: "Add",
+        url: "/DanhMuc/Add",
         data: JSON.stringify(dmObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
@@ -58,11 +59,12 @@ function Update() {
     if (res == false) {
         return false;
     }
+    var status = 1;
     var dmObj = {
         DanhMucID: $('#DanhMucID').val(),
         TenDanhMuc: $('#TenDanhMuc').val(),
         MetaKeyword: $('#MetaKeyword').val(),
-        Status: $('#Status')
+        Status: status
     };
     $.ajax({
         url: "/DanhMuc/Update",
@@ -84,8 +86,7 @@ function Update() {
     });
 }
 
-//function for deleting sanployee's record  
-function Delele(ID) {
+function Delete(ID) {
     var ans = confirm("Bạn có muốn xóa không?");
     if (ans) {
         $.ajax({
@@ -94,7 +95,7 @@ function Delele(ID) {
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             success: function (result) {
-                location.reload();;
+                location.reload();
             },
             error: function (errormessage) {
                 alert(errormessage.responseText);
@@ -102,6 +103,25 @@ function Delele(ID) {
         });
     }
 }
+
+//function for deleting sanployee's record  
+//function Delele(ID) {
+//    var ans = confirm("Bạn có muốn xóa không?");
+//    if (ans) {
+//        $.ajax({
+//            url: "/DanhMuc/Delete/" + ID,
+//            type: "POST",
+//            contentType: "application/json;charset=UTF-8",
+//            dataType: "json",
+//            success: function (result) {
+//                location.reload();
+//            },
+//            error: function (errormessage) {
+//                alert(errormessage.responseText);
+//            }
+//        });
+//    }
+//}
 //Function for clearing the textboxes  
 function clearTextBox() {
     $('#DanhMucID').val("");
@@ -130,13 +150,6 @@ function validate() {
     }
     else {
         $('#MetaKeyword').css('border-color', 'lightgrey');
-    }
-    if ($('#Status').val().trim() == "") {
-        $('#Status').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#Status').css('border-color', 'lightgrey');
     }
     return isValid;
 }
