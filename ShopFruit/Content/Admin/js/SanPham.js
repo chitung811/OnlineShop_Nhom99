@@ -7,7 +7,7 @@ function Add() {
     }
     var sanpObj = {
         SanPhamID: $('#SanPhamID').val(),
-        Image: $('#Image').val(),
+        Image: $('#Image').val().slice(12),
         TenSanPham: $('#TenSanPham').val(),
         DonGia: $('#DonGia').val(),
         PromotionPrice: $('#PromotionPrice').val(),
@@ -30,6 +30,7 @@ function Add() {
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
+            console.log($(Image));
         }
     });
 }
@@ -51,7 +52,6 @@ function getbyID(SanPhamID) {
         dataType: "json",
         success: function (result) {
             $('#SanPhamID').val(result.SanPhamID);
-            $('#Image').val(result.Image);
             $('#TenSanPham').val(result.TenSanPham);
             $('#DonGia').val(result.DonGia);
             $('#PromotionPrice').val(result.PromotionPrice);

@@ -1,11 +1,14 @@
-﻿using Model.DAO;
+﻿using Microsoft.AspNetCore.Http;
+using Model.DAO;
 using Model.EF;
 using Model.ViewModel;
 using PagedList;
 using ShopFruit.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -38,6 +41,18 @@ namespace ShopFruit.Areas.Admin.Controllers
         }
         public JsonResult Add(SanPham ID)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    if(Hinh != null)
+            //    {
+            //        var urlFull = Path.Combine(Directory.GetCurrentDirectory(), "ShopFruit", "Content", "Client", "images", Hinh.FileName);
+            //        using(var file = new FileStream(urlFull, FileMode.Create))
+            //        {
+            //            await Hinh.CopyToAsync(file);
+            //        }
+            //        ID.Image = Hinh.FileName;
+            //    }
+            //}
             SetViewBag();
             return Json(SanPhamDAO.Add(ID), JsonRequestBehavior.AllowGet);
         }

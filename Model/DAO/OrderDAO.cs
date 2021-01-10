@@ -94,8 +94,8 @@ namespace Model.DAO
                     order.ShipEmail = rdr["ShipEmail"].ToString();
                     order.ShipMobile = rdr["ShipMobile"].ToString();
                     order.ShipName = rdr["ShipName"].ToString();
-                    order.TongTien = (long)rdr["TongTien"];
-                    order.UserID = (long)rdr["UserID"];
+                    //order.TongTien = (int)rdr["TongTien"];
+                    //order.UserID = (long)rdr["UserID"];
                     order.Status = (bool)rdr["Status"];
                     lst.Add(order);
                 }
@@ -117,7 +117,7 @@ namespace Model.DAO
             FruitShopDbContext db = new FruitShopDbContext();
             return db.Orders.Where(x => x.Status == false).Count();
         }
-        public int Update(Order order)
+        public int Update(long orderID)
         {
             int i;
             using (SqlConnection con = new SqlConnection(cs))
@@ -125,15 +125,15 @@ namespace Model.DAO
                 con.Open();
                 SqlCommand com = new SqlCommand("InsertUpdateOrder", con);
                 com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@OrderID", order.OrderID);
-                com.Parameters.AddWithValue("@CreateDate", order.CreateDate);
-                com.Parameters.AddWithValue("@ShipAddress", order.ShipAddress);
-                com.Parameters.AddWithValue("@ShipEmail", order.ShipEmail);
-                com.Parameters.AddWithValue("@ShipMobile", order.ShipMobile);
-                com.Parameters.AddWithValue("@ShipName", order.ShipName);
-                com.Parameters.AddWithValue("@TongTien", order.TongTien);
-                com.Parameters.AddWithValue("@UserID", order.UserID);
-                com.Parameters.AddWithValue("@Status", order.Status);
+                com.Parameters.AddWithValue("@OrderID", orderID);
+                //com.Parameters.AddWithValue("@CreateDate", order.CreateDate);
+                //com.Parameters.AddWithValue("@ShipAddress", order.ShipAddress);
+                //com.Parameters.AddWithValue("@ShipEmail", order.ShipEmail);
+                //com.Parameters.AddWithValue("@ShipMobile", order.ShipMobile);
+                //com.Parameters.AddWithValue("@ShipName", order.ShipName);
+                //com.Parameters.AddWithValue("@TongTien", order.TongTien);
+                //com.Parameters.AddWithValue("@UserID", order.UserID);
+                ///com.Parameters.AddWithValue("@Status", status);
                 com.Parameters.AddWithValue("@Action", "Update");
                 i = com.ExecuteNonQuery();
             }
@@ -152,6 +152,10 @@ namespace Model.DAO
                 i = com.ExecuteNonQuery();
             }
             return i;
+        }
+        public Order OrderDetail(long id)
+        {
+            return db.Orders.Find(id);
         }
     }
 }
