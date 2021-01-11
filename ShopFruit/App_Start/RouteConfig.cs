@@ -49,12 +49,7 @@ namespace ShopFruit
              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
              namespaces: new[] { "ShopFruit.Controllers" }
          );
-            routes.MapRoute(
-             name: "cart",
-             url: "gio-hang",
-             defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
-             namespaces: new[] { "ShopFruit.Controllers" }
-         );
+           
             routes.MapRoute(
              name: "Payment",
              url: "thanh-toan",

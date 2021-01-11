@@ -30,14 +30,14 @@
                                     <div class="col-md-4 col-sm-6 col-xs-6">
                                         <div class="item-product item-product-grid text-center">
                                             <div class="product-thumb">
-                                                <a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID" class="product-thumb-link rotate-thumb">
+                                                <a href="/Product/Detail/@item.SanPhamID" class="product-thumb-link rotate-thumb">
                                                     <img src="~/Content/Client/images/@item.Image" alt="">
                                                     <img src="~/Content/Client/images/@item.Image" alt="">
                                                 </a>
                                                 <a href="#" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
                                             </div>
                                             <div class="product-info">
-                                                <h3 class="product-title"><a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID">@item.TenSanPham</a></h3>
+                                                <h3 class="product-title"><a href="/Product/Detail/@item.SanPhamID">@item.TenSanPham</a></h3>
                                                 <div class="product-price">
                                                     <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
                                                 </div>
@@ -45,7 +45,7 @@
                                                     <div class="product-rating" style="width:100%"></div>
                                                 </div>
                                                 <div class="product-extra-link">
-                                                    <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                                    <a href="/Cart/AddItem?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
                                                 </div>
                                             </div>
                                         </div>
