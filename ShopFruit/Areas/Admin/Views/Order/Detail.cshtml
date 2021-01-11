@@ -13,6 +13,9 @@
 
 <table class="table">
     <tr>
+        <td>
+            Tên sản phẩm
+        </td>
         <th>
             Ảnh sản phẩm
         </th>
@@ -34,6 +37,9 @@
                 {
                     <tr>
                         <td>
+                            @item2.TenSanPham
+                        </td>
+                        <td>
                             <img src="~/Content/Client/images/@item2.Image" height="150" width="150" />
                         </td>
                         <td>
@@ -50,4 +56,4 @@
 
 
 </table>
-<span style="float:right"><b>Thành tiền: @Model.TongTien</b></span>
+<span style="float:right;font-size:25px"><b>Thành tiền: @Model.TongTien</b></span>

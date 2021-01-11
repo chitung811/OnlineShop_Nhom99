@@ -5,6 +5,7 @@ function Add() {
     if (res == false) {
         return false;
     }
+    var status = 1;
     var sanpObj = {
         SanPhamID: $('#SanPhamID').val(),
         Image: $('#Image').val().slice(12),
@@ -16,7 +17,7 @@ function Add() {
         MetaKeyword: $('#MetaKeyword').val(),
         Quantity: $('#Quantity').val(),
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
-        Status: $('#Status').val()
+        Status: status
     };
     $.ajax({
         url: "SanPham/Add",
@@ -79,6 +80,7 @@ function Update() {
     if (res == false) {
         return false;
     }
+    var status = 1;
     var sanpObj = {
         SanPhamID: $('#SanPhamID').val(),
         Image: $('#Image').val(),
@@ -90,7 +92,7 @@ function Update() {
         MetaKeyword: $('#MetaKeyword').val(),
         Quantity: $('#Quantity').val(),
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
-        Status: $('#Status').is(":checked") ? true : false
+        Status: status
     };
     $.ajax({
         url: "/SanPham/Update",
@@ -229,13 +231,6 @@ function validate() {
     }
     else {
         $('#DanhMucSanPhamID').css('border-color', 'lightgrey');
-    }
-    if ($('#Status').val().trim() == "") {
-        $('#Status').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#Status').css('border-color', 'lightgrey');
     }
     return isValid;
 }

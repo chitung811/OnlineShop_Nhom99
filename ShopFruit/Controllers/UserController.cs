@@ -33,7 +33,10 @@ namespace ShopFruit.Controllers
         }
         public ActionResult QuanLyDonHang()
         {
-            return View();
+            var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+            var thongTinDonHangDAO = new ThongTinDonHangDAO();
+            var donHang = thongTinDonHangDAO.ToanBoDonDatHang(session.UserID);
+            return View(donHang);
         }
         public PartialViewResult DonHangDangDat()
         {

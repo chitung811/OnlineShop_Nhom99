@@ -53,10 +53,6 @@
                         <label for="DanhMucSanPhamID">Danh Mục Sản Phẩm</label>
                         @Html.DropDownListFor(Model =>Model.DanhMucSanPhamID, (IEnumerable<SelectListItem>)ViewBag.CategoryID, "chọn danh mục sản phẩm", new { @class = "form-control", @id = "DanhMucSanPhamID" })
                     </div>
-                    <div class="form-group">
-                        <label for="Status">Trạng Thái</label>
-                        <input type="number" min="0" max="10" class="form-control" id="Status" placeholder="Trạng Thái" />
-                    </div>
                 </form>
             </div>
             <div class="modal-footer">

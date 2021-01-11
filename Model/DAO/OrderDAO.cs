@@ -110,7 +110,7 @@ namespace Model.DAO
         public decimal? TongTien()
         {
             FruitShopDbContext db = new FruitShopDbContext();
-            return db.Orders.Where(x => x.Status == true).Sum(x=>x.TongTien);
+            return db.Orders.Where(x => x.Status == false).Sum(x=>x.TongTien);
         }
         public int DonHangDaGiao()
         {
