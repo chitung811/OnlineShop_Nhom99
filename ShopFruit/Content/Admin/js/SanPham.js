@@ -14,7 +14,7 @@ function Add() {
         PromotionPrice: $('#PromotionPrice').val(),
         TomTat: $('#TomTat').val(),
         Description: $('#Description').val(),
-        MetaKeyword: $('#MetaKeyword').val(),
+        MetaKeyword: $('#TenSanPham').val(),
         Quantity: $('#Quantity').val(),
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
         Status: status
@@ -89,7 +89,7 @@ function Update() {
         PromotionPrice: $('#PromotionPrice').val(),
         TomTat: $('#TomTat').val(),
         Description: $('#Description').val(),
-        MetaKeyword: $('#MetaKeyword').val(),
+        MetaKeyword: $('#TenSanPham').val(),
         Quantity: $('#Quantity').val(),
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
         Status: status
@@ -210,13 +210,6 @@ function validate() {
     }
     else {
         $('#Description').css('border-color', 'lightgrey');
-    }
-    if ($('#MetaKeyword').val().trim() == "") {
-        $('#MetaKeyword').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#MetaKeyword').css('border-color', 'lightgrey');
     }
     if ($('#Quantity').val().trim() == "") {
         $('#Quantity').css('border-color', 'Red');
