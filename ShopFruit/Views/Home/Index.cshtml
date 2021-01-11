@@ -92,17 +92,17 @@
                     <div class="wrap-item" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
                         @foreach (var item in newProducts)
                         {
-                            var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+                            
                             <div class="item-product border text-center">
                                 <div class="product-thumb">
-                                    <a href="@url" class="product-thumb-link rotate-thumb">
+                                    <a href="/Product/Detail/@item.SanPhamID" class="product-thumb-link rotate-thumb">
                                         <img src="~/Content/Client/images/@item.Image" alt="">
                                         <img src="~/Content/Client/images/@item.Image" alt="">
                                     </a>
                                     <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                    <h3 class="product-title"><a href="/Product/Detail/@item.SanPhamID">@item.TenSanPham</a></h3>
                                     <div class="product-price">
                                         <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
                                     </div>
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="product-extra-link">
                                         
-                                        <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                        <a href="/Cart/AddItem?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
                                        
                                     </div>
                                     
@@ -126,17 +126,17 @@
                     <div class="wrap-item" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
                         @foreach (var item in newProducts1)
                         {
-                            var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+                          
                             <div class="item-product border text-center">
                                 <div class="product-thumb">
-                                    <a href="@url" class="product-thumb-link rotate-thumb">
+                                    <a href="/Product/Detail/@item.SanPhamID" class="product-thumb-link rotate-thumb">
                                         <img src="~/Content/Client/images/@item.Image" alt="">
                                         <img src="~/Content/Client/images/@item.Image" alt="">
                                     </a>
                                     <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                    <h3 class="product-title"><a href="/Product/Detail/@item.SanPhamID">@item.TenSanPham</a></h3>
                                     <div class="product-price">
                                         <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
                                     </div>
@@ -144,7 +144,7 @@
                                         <div class="product-rating" style="width:100%"></div>
                                     </div>
                                     <div class="product-extra-link">
-                                        <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                        <a href="/Cart/AddItem?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -166,11 +166,11 @@
             <div class="deal-slider2 product-slider">
                 <div class="wrap-item" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[990,3]]">
                     @foreach (var item in listFeatureProducts)
-                    {
-                        var url = "/chi-tiet-" + item.MetaKeyword + "-" + item.SanPhamID;
+					{
+						
                         <div class="item-product item-deal-product2 text-center">
                             <div class="product-thumb">
-                                <a href="@url" class="product-thumb-link zoomout-thumb">
+                                <a href="/Product/Detail/@item.SanPhamID" class="product-thumb-link zoomout-thumb">
                                     <img src="~/Content/Client/images/@item.Image" alt="">
                                     <img src="~/Content/Client/images/@item.Image" alt="">
                                 </a>
@@ -182,12 +182,12 @@
                                     <del class="silver"><span>@item.DonGia.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></del>
                                     <ins class="color"><span>@item.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></ins>
                                 </div>
-                                <h3 class="product-title"><a href="@url">@item.TenSanPham</a></h3>
+                                <h3 class="product-title"><a href="/Product/Detail/@item.SanPhamID">@item.TenSanPham</a></h3>
                                 <div class="product-rate">
                                     <div class="product-rating" style="width:100%"></div>
                                 </div>
                                 <div class="product-extra-link">
-                                    <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
+                                    <a href="/Cart/AddItem?productID=@item.SanPhamID&quantity=1" class="addcart-link">Add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="product-thumb">
-                                        <a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID" class="product-thumb-link zoomout-thumb">
+                                        <a href="/Product/Detail/@item.SanPhamID" class="product-thumb-link zoomout-thumb">
                                             <img src="~/Content/Client/images/@item.Image" alt="">
                                             <img src="~/Content/Client/images/@item.Image" alt="">
                                         </a>
@@ -227,7 +227,7 @@
                                         </div>
                                         <h3 class="product-title"><a href="/chi-tiet-@item.MetaKeyword-@item.SanPhamID">@item.TenSanPham</a></h3>
                                         <div class="product-extra-link">
-                                            <a href="/them-gio-hang?productID=@item.SanPhamID&quantity=1" class="addcart-link">Thêm vào giỏ</a>
+                                            <a href="/Cart/AddItem?productID=@item.SanPhamID&quantity=1" class="addcart-link">Thêm vào giỏ</a>
 
                                         </div>
                                         

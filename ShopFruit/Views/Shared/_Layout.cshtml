@@ -120,7 +120,7 @@
                                         }
                                         @if (session == null)
                                         {
-                                            <li><a href="@Url.Action("Index","User")"><span class="color"><i class="fas fa-sign-in-alt"></i></span>Đăng Nhập</a></li>
+                                            <li><a href="/User"><span class="color"><i class="fas fa-sign-in-alt"></i></span>Đăng Nhập</a></li>
                                         }
                                         else
                                         {
@@ -130,6 +130,10 @@
                                                 </a>
                                                 <!-- Dropdown - User Information -->
                                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                                    <a class="dropdown-item" href="/User/QuanLyDonHang">
+                                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                        Đơn hàng của bạn
+                                                    </a>
 
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -140,7 +144,7 @@
 
                                         }
 
-                                        <li><a href="/gio-hang"><span class="color"><i class="fas fa-cart-plus"></i></span>Giỏ Hàng</a></li>
+                                        <li><a href="/Cart"><span class="color"><i class="fas fa-cart-plus"></i></span>Giỏ Hàng</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -155,7 +159,7 @@
                                         <h1 class="hidden">Fruit Shop</h1>
                                         <a href="/" ref="nofollow"><img src="~/Content/Client/images/home/home2/logo3.jpg" alt="" width="180" height="100"/></a>
                                     </div>
-                                    <form action="/tim-kiem" method="get" class="search-form search-form2 pull-right">
+                                    <form action="/Search/Search" method="get" class="search-form search-form2 pull-right">
                                         <input id="txtSearch" name="term" class="gray" placeholder="Gõ từ khoá...." type="text">
                                         <input type="submit" value="">
                                     </form>
@@ -184,9 +188,11 @@
                                                 </ul>
                                             </div>
 
-                                            
                                             <li class="hover-nav">
-                                                <a href="/gio-hang">Giỏ hàng</a>
+                                                <a href="/Blog">Blog</a>
+                                            </li>
+                                            <li class="hover-nav">
+                                                <a href="/Cart">Giỏ hàng</a>
                                             </li>
                                         </ul>
                                     </nav>
