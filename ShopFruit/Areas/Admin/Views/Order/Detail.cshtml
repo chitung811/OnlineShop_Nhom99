@@ -6,10 +6,9 @@
 }
 @{
     var Products = (List<Model.EF.SanPham>)ViewBag.SanPham;
-    var AnhSanPhams = (List<Model.EF.AnhSanPham>)ViewBag.AnhSanPhams;
     var OrderDetail = (List<Model.EF.OrderDetail>)ViewBag.OrderDetail;
 }
-<h2>Index</h2>
+<h2>Chi tiết sản phẩm</h2>
 
 
 <table class="table">
@@ -35,7 +34,7 @@
                 {
                     <tr>
                         <td>
-                            <img src="~/Content/Client/images/@item2.Image" />
+                            <img src="~/Content/Client/images/@item2.Image" height="150" width="150" />
                         </td>
                         <td>
                             @item.Quantity
@@ -51,4 +50,4 @@
 
 
 </table>
-Thành tiền: @Model.TongTien
+<span style="float:right"><b>Thành tiền: @Model.TongTien</b></span>

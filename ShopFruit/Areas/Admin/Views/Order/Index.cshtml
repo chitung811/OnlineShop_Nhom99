@@ -61,23 +61,28 @@
                                 </td>
                                 @if (item.Status == true)
                                 {
-                            <td>
-                                Chưa giao
-                            </td>
+                                    <td>
+                                        Chưa giao
+                                    </td>
                                 }
                                 else
                                 {
-                            <td>
-                                Giao thành công
-                            </td>
+                                    <td>
+                                        Giao thành công
+                                    </td>
                                 }
                                 <td>
                                     @Html.DisplayFor(modelItem => item.TongTien)
                                 </td>
+                                <td  width="15%">
+
+
+                                    <a class="btn btn-success btn-sm" onclick=Update(@item.OrderID);><i class="fa fa-pen-fancy fa-lg"></i></a>
+                                    <a class="btn btn-warning btn-sm" onclick=Delete(@item.OrderID);><i class="fa fa-trash fa-lg"></i></a>
+                                   
+                                </td>
                                 <td>
-									<a class="btn btn-primary btn-sm" onclick=getbyID(@item.OrderID);><i class="fa fa-pen-fancy fa-lg"></i></a>
-									<a class="btn btn-danger btn-sm" onclick=Delete(@item.OrderID);><i class="fa fa-trash fa-lg"></i></a>
-                                    <a class="btn btn-danger btn-sm" href="/Admin/Order/Detail/@item.OrderID" >Chi tiết</a>
+                                    <a class="btn btn-warning btn-sm" href="/Admin/Order/Detail/@item.OrderID" style="font-weight:bold">Chi Tiết</a>
                                 </td>
                             </tr>
                             }
