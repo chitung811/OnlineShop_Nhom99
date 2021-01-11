@@ -23,19 +23,22 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.ShipName)
+                                    Tên người đặt
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.ShipMobile)
+                                    SDT
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.ShipEmail)
+                                    Email
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.ShipAddress)
+                                    Địa chỉ
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Status)
+                                    Trạng thái
+                                </th>
+                                <th>
+                                    Ngày đặt
                                 </th>
                                 <th>
                                     Tổng tiền
@@ -71,6 +74,9 @@
                                         Giao thành công
                                     </td>
                                 }
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateDate)
+                            </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.TongTien)
                                 </td>
