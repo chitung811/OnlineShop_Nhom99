@@ -21,10 +21,6 @@
                         <input type="text" class="form-control" id="TenDanhMucSanPham" placeholder="Tên Danh Mục Sản Phẩm" />
                     </div>
                     <div class="form-group">
-                        <label for="MetaKeyword">MetaKeyword</label>
-                        <input type="text" class="form-control" id="MetaKeyword" placeholder="MetaKeyword" />
-                    </div>
-                    <div class="form-group">
                         <label for="DanhMucID">Danh Mục</label>
                         @Html.DropDownListFor(model => model.DanhMucID, (IEnumerable<SelectListItem>)ViewBag.CategoryID,"Chọn danh mục", new { @class = "form-control", @id = "DanhMucID"})
                     </div>

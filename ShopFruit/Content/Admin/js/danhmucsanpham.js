@@ -9,7 +9,7 @@ function Add() {
     var dmspObj = {
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
         TenDanhMucSanPham: $('#TenDanhMucSanPham').val(),
-        MetaKeyword: $('#MetaKeyword').val(),
+        MetaKeyword: $('#TenDanhMucSanPham').val(),
         DanhMucID: $('#DanhMucID').val(),
         Status: status
     };
@@ -66,7 +66,7 @@ function Update() {
     var dmspObj = {
         DanhMucSanPhamID: $('#DanhMucSanPhamID').val(),
         TenDanhMucSanPham: $('#TenDanhMucSanPham').val(),
-        MetaKeyword: $('#MetaKeyword').val(),
+        MetaKeyword: $('#TenDanhMucSanPham').val(),
         DanhMucID: $('#DanhMucID').val(),
         Status: status
     };
@@ -131,13 +131,6 @@ function validate() {
     }
     else {
         $('#TenDanhMucSanPham').css('border-color', 'lightgrey');
-    }
-    if ($('#MetaKeyword').val().trim() == "") {
-        $('#MetaKeyword').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#MetaKeyword').css('border-color', 'lightgrey');
     }
     if ($('#DanhMucID').val().trim() == "") {
         $('#DanhMucID').css('border-color', 'Red');

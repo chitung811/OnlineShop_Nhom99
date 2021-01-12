@@ -9,7 +9,7 @@ function Add() {
     var dmObj = {
         DanhMucID: $('#SanPhamID').val(),
         TenDanhMuc: $('#TenDanhMuc').val(),
-        MetaKeyword: $('#MetaKeyword').val(),
+        MetaKeyword: $('#TenDanhMuc').val(),
         Status: status
     };
     $.ajax({
@@ -63,7 +63,7 @@ function Update() {
     var dmObj = {
         DanhMucID: $('#DanhMucID').val(),
         TenDanhMuc: $('#TenDanhMuc').val(),
-        MetaKeyword: $('#MetaKeyword').val(),
+        MetaKeyword: $('#TenDanhMuc').val(),
         Status: status
     };
     $.ajax({
@@ -143,13 +143,6 @@ function validate() {
     }
     else {
         $('#TenDanhMuc').css('border-color', 'lightgrey');
-    }
-    if ($('#MetaKeyword').val().trim() == "") {
-        $('#MetaKeyword').css('border-color', 'Red');
-        isValid = false;
-    }
-    else {
-        $('#MetaKeyword').css('border-color', 'lightgrey');
     }
     return isValid;
 }
