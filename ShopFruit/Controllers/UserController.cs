@@ -137,7 +137,7 @@ namespace ShopFruit.Controllers
                     ModelState.AddModelError("", "Tài khoản mật khẩu không đúng không đúng");
                 }
             }
-            return PartialView("Index");
+            return Redirect("/Home");
         }
         public ActionResult LoginFacebook()
         {

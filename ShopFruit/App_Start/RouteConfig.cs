@@ -43,19 +43,9 @@ namespace ShopFruit
              defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional },
              namespaces: new[] { "ShopFruit.Controllers" }
          );
-            routes.MapRoute(
-             name: "Home",
-             url: "trang-chu",
-             defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-             namespaces: new[] { "ShopFruit.Controllers" }
-         );
+            
            
-            routes.MapRoute(
-             name: "Payment",
-             url: "thanh-toan",
-             defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional },
-             namespaces: new[] { "ShopFruit.Controllers" }
-        );
+            
             routes.MapRoute(
              name: "Add cart",
              url: "them-gio-hang",
@@ -75,13 +65,6 @@ namespace ShopFruit
              defaults: new { controller = "Blog", action = "Detail", id = UrlParameter.Optional },
              namespaces: new[] { "ShopFruit.Controllers" }
              );
-            routes.MapRoute(
-               name: "Payment Success",
-               url: "hoan-thanh",
-               defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
-               namespaces: new[] { "ShopFruit.Controllers" }
-
-         );
             routes.MapRoute(
               name: "quan ly don hang",
               url: "quan-ly-don-hang",

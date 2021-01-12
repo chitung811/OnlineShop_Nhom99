@@ -50,7 +50,7 @@ namespace ShopFruit.Areas.Admin.Controllers
         public ActionResult Logout()
         {
             Session[Common.CommonConstants.USER_SESSION] = null;
-            return RedirectToAction("Index","Home",new { area=""});
+            return RedirectToAction("Index","User",new { area=""});
         }
 
     }

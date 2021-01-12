@@ -4,10 +4,10 @@
     },
     regEvents: function () {
         $('#btnContinue').off('click').on('click', function () {
-            window.location.href = "/";
+            window.location.href = "/Home";
         });
         $('#btnPayment').off('click').on('click', function () {
-            window.location.href = "/thanh-toan";
+            window.location.href = "/Cart/Payment";
         });
         $('.number').change(function (e) {
             setTimeout(3);
@@ -31,7 +31,7 @@
                         
                         e.preventDefault();
                         e.stopPropagation();
-                        window.location.href = "/gio-hang";
+                        window.location.href = "/Cart";
                         
                         
                     }
@@ -45,7 +45,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/gio-hang";
+                        window.location.href = "/Cart";
                     }
                 }
             })
@@ -59,7 +59,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/gio-hang";
+                        window.location.href = "/Cart";
                     }
                 }
             })

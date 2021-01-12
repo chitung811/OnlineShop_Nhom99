@@ -45,13 +45,13 @@
                                     {
                                         <tr class="cart_item">
                                             <td class="product-remove">
-                                                <a class="remove btn-delete" href="#" data-id="@item.Product.SanPhamID"><i class="fa fa-times"></i></a>
+                                                <a class="remove btn-delete"  data-id="@item.Product.SanPhamID"><i class="fa fa-times"></i></a>
                                             </td>
                                             <td class="product-thumbnail">
-                                                <a href="#"><img src="~/Content/Client/images/@item.Product.Image" alt="" /></a>
+                                                <img src="~/Content/Client/images/@item.Product.Image" alt="" />
                                             </td>
                                             <td class="product-name" data-title="Product">
-                                                <a href="#">@item.Product.TenSanPham</a>
+                                                <a >@item.Product.TenSanPham</a>
                                             </td>
                                             <td class="product-price" data-title="Price">
                                                 <input disabled class="dongia" type="text" name="name" value="@item.Product.PromotionPrice.AsDecimal().ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))" />đ
@@ -69,7 +69,7 @@
 
                                     <tr>
                                         <td class="actions" colspan="6">
-                                            <a style=" border: medium none; color: #fff; height: 40px;padding: 10px 20px;" href="/" class="button bg-color hoverBlack">Continue buying</a>
+                                            <a style=" border: medium none; color: #fff; height: 40px;padding: 10px 20px;" href="/Home" class="button bg-color hoverBlack">Continue buying</a>
                                             <input type="submit" value="Delete cart" id="btnDeleteAll" class="button bg-color">
                                         </td>
                                     </tr>
@@ -100,10 +100,6 @@
                                                     <li>
                                                         <select id="Ship" name="Ship">
                                                             <option value="0">Free Shipping</option>
-                                                            @foreach (var item in Ship)
-                                                            {
-                                                                <option value="@item.ShipID">@item.Name</option>
-                                                            }
                                                         </select>
                                                     </li>
                                                 </ul>

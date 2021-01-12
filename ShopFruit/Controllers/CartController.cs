@@ -205,10 +205,10 @@ namespace ShopFruit.Controllers
             catch (Exception ex)
             {
                 //ghi log
-                return Redirect("/bao-tri");
+                return Redirect("/Cart/Error");
             }
             Session[CartSession] = null;
-            return Redirect("/hoan-thanh");
+            return Redirect("/Cart/Payment");
         }
         public ActionResult Success()
         {
