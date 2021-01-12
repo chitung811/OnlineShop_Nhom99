@@ -190,25 +190,15 @@ namespace ShopFruit.Controllers
                         sanPhamDAO.Update(sanPham);
                     }
                 }
-                //string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/Client/Template/neworder.html"));
-
-                //content = content.Replace("{{CustomerName}}", shipName);
-                //content = content.Replace("{{Phone}}", mobile);
-                //content = content.Replace("{{Email}}", email);
-                //content = content.Replace("{{Address}}", address);
-                //content = content.Replace("{{Total}}", total.Value.ToString("N0"));
-                //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-
-                //new MailHelper().SendMail(email, "khách hàng đặt hàng từ FruitShop", content);
-                //new MailHelper().SendMail(toEmail, "Đơn hàng mới từ FruitShop", content);
+            
             }
             catch (Exception ex)
             {
                 //ghi log
-                return Redirect("/bao-tri");
+                return Redirect("/Cart/Error");
             }
             Session[CartSession] = null;
-            return Redirect("/hoan-thanh");
+            return Redirect("/Cart/Success");
         }
         public ActionResult Success()
         {
