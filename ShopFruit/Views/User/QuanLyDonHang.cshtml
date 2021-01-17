@@ -5,6 +5,7 @@
 }
 
 
+
 <h2 style="text-align:center; margin-top:20px"><strong>Quản Lý Đơn Hàng</strong></h2>
 <p></p>
 <p><hr /></p>
@@ -20,44 +21,8 @@
     </div>
     <div class="card-body" style="color: hsl(233, 13%, 79%);line-height:24px;padding:20px;text-align:left;border: 1px solid;border-radius: 0px 0px 10px 10px;">
         <div class="table-responsive" style="color:hsl(233, 7%, 55%);line-height:24px;padding:20px;text-align:left;">
-            <table>
-                <tr>
-                    <th>
-                        Ngày đặt
-                    </th>
-                    <th>
-                        Trạng thái
-                    </th>
-                    <th>
-                        Tổng tiền
-                    </th>
-                </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @item.CreateDate
-                        </td>
-                        @if (item.Status == false)
-                        {
-                            <td>
-                                Đã giao hàng
-                            </td>
-                        }
-                        else
-                        {
-                            <td>
-                                Chưa giao
-                            </td>
-                        }
-                        <td>
-                            Tổng tiền
-                        </td>
-                    </tr>
-
-                }
-            </table>
-            @*@{Html.RenderAction("TatCaDonHang", "User");}*@
+            
+            @{Html.RenderAction("TatCaDonHang", "User");}
         </div>
     </div>
 </div>

@@ -83,7 +83,7 @@ function Update() {
     var status = 1;
     var sanpObj = {
         SanPhamID: $('#SanPhamID').val(),
-        Image: $('#Image').val(),
+        Image: $('#Image').val().slice(12),
         TenSanPham: $('#TenSanPham').val(),
         DonGia: $('#DonGia').val(),
         PromotionPrice: $('#PromotionPrice').val(),

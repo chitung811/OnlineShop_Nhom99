@@ -11,12 +11,6 @@
                 Ngày Đặt Hàng
             </th>
             <th>
-                Tên Sản Phẩm
-            </th>
-            <th>
-                Số Lượng
-            </th>
-            <th>
                 Tên Người Đặt
             </th>
             <th>
@@ -27,6 +21,9 @@
             </th>
             <th>
                 Tổng Tiền
+            </th>
+            <th>
+                Trạng thái
             </th>
             <th>
                 Action
@@ -45,12 +42,6 @@
                     @Html.DisplayFor(modelItem => item.CreateDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TenSanPham)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.ShipName)
                 </td>
                 <td>
@@ -62,8 +53,20 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.TongTien)
                 </td>
+                @if (item.Status == true)
+                {
+                    <td>
+                        Chưa giao
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Giao thành công
+                    </td>
+                }
                 <td>
-                    <a href="/User/ChiTietDonHang?orderID=@item.OrderID"><i class="fas fa-info-circle"></i></a>
+                    <a href="/User/Detail/@item.OrderID"><i class="fas fa-info-circle"></i></a>
                 </td>
             </tr>
         }

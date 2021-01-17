@@ -55,18 +55,18 @@ namespace Model.DAO
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("SelectQuanLyDonHangALL", con);
+                SqlCommand com = new SqlCommand("SelectQuanLyDonHang", con);
                 com.Parameters.AddWithValue("@UserID", userID);
                 com.CommandType = CommandType.StoredProcedure;
                 SqlDataReader rdr = com.ExecuteReader();
                 while (rdr.Read())
                 {
                     DonHangViewModel donHangViewModel = new DonHangViewModel();
-                    donHangViewModel.SanPhamID = rdr["SanPhamID"].ToString();
+                    //donHangViewModel.SanPhamID = rdr["SanPhamID"].ToString();
                     donHangViewModel.OrderID = rdr["OrderID"].ToString();
-                    donHangViewModel.DonGia = rdr["DonGia"].ToString();
-                    donHangViewModel.Quantity = rdr["Quantity"].ToString();
-                    donHangViewModel.ThanhTien = rdr["ThanhTien"].ToString();
+                    //donHangViewModel.DonGia = rdr["DonGia"].ToString();
+                    //donHangViewModel.Quantity = rdr["Quantity"].ToString();
+                    //donHangViewModel.ThanhTien = rdr["ThanhTien"].ToString();
                     donHangViewModel.CreateDate = (DateTime)rdr["CreateDate"];
                     donHangViewModel.ShipName = rdr["ShipName"].ToString();
                     donHangViewModel.ShipMobile = rdr["ShipMobile"].ToString();
@@ -75,7 +75,7 @@ namespace Model.DAO
                     donHangViewModel.Status = (bool)rdr["Status"];
                     donHangViewModel.UserID = rdr["UserID"].ToString();
                     donHangViewModel.TongTien = rdr["TongTien"].ToString();
-                    donHangViewModel.TenSanPham = rdr["TenSanPham"].ToString();
+                    //donHangViewModel.TenSanPham = rdr["TenSanPham"].ToString();
                     lst.Add(donHangViewModel);
 
                 }

@@ -244,7 +244,14 @@ namespace ShopFruit.Controllers
             }
             return View("Index");
         }
+        public ActionResult Detail(int id)
+        {
+            var order = new OrderDAO().OrderDetail(id);
 
+            ViewBag.OrderDetail = new OrderDetailDAO().ListAll();
+            ViewBag.SanPham = new ProductDAO().ListAll();
+            return View(order);
+        }
 
     }
 }

@@ -2975,6 +2975,7 @@
     <Content Include="Views\User\TatCaDonHang.cshtml" />
     <Content Include="Views\User\DonHangDaGiao.cshtml" />
     <Content Include="Views\User\ChiTietDonHang.cshtml" />
+    <Content Include="Views\User\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

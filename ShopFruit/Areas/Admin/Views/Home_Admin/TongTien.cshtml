@@ -6,7 +6,14 @@
                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tổng doanh thu</div>
                     <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.TongTien.ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<strong>đ</strong></div>
+                            @if (@ViewBag.TongTien == null)
+                            {
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0<strong>đ</strong></div>
+                            }
+                            else
+                            {
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.TongTien.ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<strong>đ</strong></div>
+                            }
                         </div>
                        
                     </div>

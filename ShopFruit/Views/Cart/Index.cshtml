@@ -69,8 +69,8 @@
 
                                     <tr>
                                         <td class="actions" colspan="6">
-                                            <a style=" border: medium none; color: #fff; height: 40px;padding: 10px 20px;" href="/Home" class="button bg-color hoverBlack">Continue buying</a>
-                                            <input type="submit" value="Delete cart" id="btnDeleteAll" class="button bg-color">
+                                            <a style=" border: medium none; color: #fff; height: 40px;padding: 10px 20px;" href="/Home" class="button bg-color hoverBlack">Tiếp tục mua hàng</a>
+                                            <input type="submit" value="Xóa giỏ hàng" id="btnDeleteAll" class="button bg-color">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -100,6 +100,10 @@
                                                     <li>
                                                         <select id="Ship" name="Ship">
                                                             <option value="0">Free Shipping</option>
+                                                            @foreach (var item in Ship)
+                                                            {
+                                                                <option value="@item.ShipID">@item.Name</option>
+                                                            }
                                                         </select>
                                                     </li>
                                                 </ul>

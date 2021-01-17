@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
     var Products = (List<Model.EF.SanPham>)ViewBag.SanPham;
@@ -50,15 +50,10 @@
                         </td>
                     </tr>
                 }
-
             }
         }
     }
 
 
 </table>
-@if(Model.GiaShip != 0)
-    {
-        <span style="float:right;font-size:25px"><b>Tiền ship: @Model.GiaShip</b></span>
-    }
 <span style="float:right;font-size:25px"><b>Thành tiền: @Model.TongTien</b></span>

@@ -91,12 +91,6 @@
                                                 <th>Subtotal</th>
                                                 <td><strong class="amount">@Model.Sum(x => x.Product.PromotionPrice.AsDecimal() * x.Quantity).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></strong></td>
                                             </tr>
-                                            <tr class="shipping">
-                                                <th>Shipping</th>
-                                                <td>
-                                                    <strong><span class="amount">@giaShip.ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR"))<small>đ</small></span></strong>
-                                                </td>
-                                            </tr>
                                             <tr class="order-total">
                                                 <th>Total</th>
                                                 <td><strong><span class="amount">@((Model.Sum(x => x.Product.PromotionPrice.AsDecimal() * x.Quantity)+ @giaShip).ToString("0,0", System.Globalization.CultureInfo.CreateSpecificCulture("el-GR")))<small>đ</small></span></strong> </td>

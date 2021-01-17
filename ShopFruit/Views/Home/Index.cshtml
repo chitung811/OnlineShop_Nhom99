@@ -85,12 +85,12 @@
     </div>
     <!-- End List Cat -->
     <div class="featured-product2">
-        <h2 class="color2 title30 text-center title-box2">featured products</h2>
+        <h2 class="color2 title30 text-center title-box2">Rau củ tươi</h2>
         <div class="tab-content">
             <div id="tab2" class="tab-pane active">
                 <div class="product-slider">
                     <div class="wrap-item" data-navigation="true" data-pagination="false" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
-                        @foreach (var item in newProducts)
+                        @foreach (var item in listFeatureProducts)
                         {
                             
                             <div class="item-product border text-center">
@@ -158,14 +158,14 @@
 </div>
 <div class="deal-box2">
     <div class="title-deal-box2 white bg-color">
-        <h2 class="title30 paci-font">Super Delas</h2>
+        <h2 class="title30 paci-font">Giỏ hoa đẹp</h2>
         <h2 class="title30 text-uppercase font-bold">top 4 items</h2>
     </div>
     <div class="deal-product2">
         <div class="container">
             <div class="deal-slider2 product-slider">
                 <div class="wrap-item" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[990,3]]">
-                    @foreach (var item in listFeatureProducts)
+                    @foreach (var item in newProducts)
 					{
 						
                         <div class="item-product item-deal-product2 text-center">
@@ -175,7 +175,6 @@
                                     <img src="~/Content/Client/images/@item.Image" alt="">
                                 </a>
                                 <a href="quick-view.html" class="quickview-link fancybox fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                <div class="product-label sale-label">***</div>
                             </div>
                             <div class="product-info">
                                 <div class="product-price">
@@ -202,7 +201,7 @@
 
 <div class="best-product2">
     <div class="container">
-        <h2 class="color2 title30 text-center title-box2">best sellers Products</h2>
+        <h2 class="color2 title30 text-center title-box2">Thực phẩm gia vị</h2>
         <div class="list-best-pro2">
             <div class="row">
                 @foreach (var item in SanPhamBanChay)

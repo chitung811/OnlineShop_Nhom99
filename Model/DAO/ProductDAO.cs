@@ -21,7 +21,7 @@ namespace Model.DAO
 
         public List<SanPham> ListNewProduct(int top)
         {
-            return db.SanPhams.OrderBy(x => x.Quantity).Take(top).ToList();
+            return db.SanPhams.Where(x => x.DanhMucSanPhamID == 8).Take(top).ToList();
         }
         public List<SanPham> ListNewProduct1(int top)
         {
@@ -29,11 +29,11 @@ namespace Model.DAO
         }
         public List<SanPham> ListFeatureProduct(int top)
         {
-            return db.SanPhams.OrderBy(x => x.PromotionPrice).Take(top).ToList();
+            return db.SanPhams.Where(x => x.DanhMucSanPhamID == 2).Take(top).ToList();
         }
         public List<SanPham> SanPhamBanChay(int top)
         {
-            return db.SanPhams.Where(x => x.Status == 1).OrderBy(x=> x.DonGia).Take(top).ToList();
+            return db.SanPhams.Where(x => x.DanhMucSanPhamID == 5).Take(top).ToList();
         }
         public List<SanPham> ListRelatedProduct(long productID)
         {
